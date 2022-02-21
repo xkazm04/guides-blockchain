@@ -53,22 +53,17 @@
     {
       "type": "item",
       "title": "How to create ERC-1155 token",
-      "uri": "/docs/How-to-create-ERC-1155-token.md"
+      "uri": "/docs/How-to-create-ERC-1155-multi-tokens.md"
     },
     {
       "type": "item",
-      "title": "How To Create Royalty Nf Ts With Fixed Cashback",
+      "title": "How To Create Royalty NFTs With Fixed Cashback",
       "uri": "/docs/How-to-create-royalty-NFTs-with-fixed-cashback.md"
     },
     {
       "type": "item",
-      "title": "How To Create Royalty Nf Ts With Percentage Cashback And Provenance Data",
+      "title": "How To Create Royalty NFTs With Percentage Cashback And Provenance Data",
       "uri": "/docs/How-to-create-royalty-NFTs-with-percentage-cashback-and-provenance-data.md"
-    },
-    {
-      "type": "item",
-      "title": "How To Send A Blockchain Transaction",
-      "uri": "/docs/How-to-send-a-blockchain-transaction.md"
     }
   ]
 }
