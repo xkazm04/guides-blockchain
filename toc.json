@@ -12,6 +12,11 @@
     },
     {
       "type": "item",
+      "title": "How to send an Ethereum transaction",
+      "uri": "/docs/How-to-send-an-Ethereum-transaction.md"
+    },
+    {
+      "type": "item",
       "title": "Getting Started With Nft Metadata",
       "uri": "/docs/Getting-started-with-NFT-metadata.md"
     },
