@@ -155,15 +155,86 @@ The response will contain a transaction ID, from which we can get information ab
 ## Getting transaction details
 To get information about the transaction, you can use the transaction ID from the response of the previous request with the Bitcoin/Get transaction endpoint.
 
+```JavaScript
+import {btcGetTransaction} from '@tatumio/tatum';
+/**
+ * @param hash - transaction hash
+ * @returns - transaction detail
+ */
+const transaction = await abtcGetTransaction('962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f');
+```
+```cURL
+curl --location --request GET 'https://api-eu1.tatum.io/v3/bitcoin/transaction/962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f' \
+--header 'x-api-key: YOUR_API_KEY' 
+```
+The response will contain the details of the transaction you have performed.
+
+**Response:**
 ```json
 {
-    "txId": "962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f"
+    "txid": "962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f",
+    "hash": "962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f",
+    "size": 374,
+    "vsize": 374,
+    "version": 2,
+    "locktime": 0,
+    "vin": [
+        {
+            "txid": "b2dc763cf75373ad14c984c07846f5425c20ddf34606debb0a148cd770528ef9",
+            "scriptSig": {
+                "asm": "3045022100e3ae860d446af1199e2799361abf8cc4cae3648a029fed3ad926fb3206ae13770220797889b261ec643c0c1dca38855bd58b6b367a9a98cda43fa220d15a919cc89201 0313f828eb023cde7a5924add3f2bd9c3e228b4e49ec6f550e8e1c5439572c238a",
+                "hex": "483045022100e3ae860d446af1199e2799361abf8cc4cae3648a029fed3ad926fb3206ae13770220797889b261ec643c0c1dca38855bd58b6b367a9a98cda43fa220d15a919cc89201210313f828eb023cde7a5924add3f2bd9c3e228b4e49ec6f550e8e1c5439572c238a"
+            },
+            "sequence": 4294967295,
+            "vout": 0
+        },
+        {
+            "txid": "b2dc763cf75373ad14c984c07846f5425c20ddf34606debb0a148cd770528ef9",
+            "scriptSig": {
+                "asm": "304502210081baa63650e42672c8dde6d5b3b414e037102620b9154168c49abd4a90cc491c02204e5808826457bff853aa68c2f9ddaebf46baa3b77dfaee5c467b66eaa773690e01 0313f828eb023cde7a5924add3f2bd9c3e228b4e49ec6f550e8e1c5439572c238a",
+                "hex": "48304502210081baa63650e42672c8dde6d5b3b414e037102620b9154168c49abd4a90cc491c02204e5808826457bff853aa68c2f9ddaebf46baa3b77dfaee5c467b66eaa773690e01210313f828eb023cde7a5924add3f2bd9c3e228b4e49ec6f550e8e1c5439572c238a"
+            },
+            "sequence": 4294967295,
+            "vout": 1
+        }
+    ],
+    "vout": [
+        {
+            "value": 6e-7,
+            "n": 0,
+            "scriptPubKey": {
+                "asm": "OP_DUP OP_HASH160 0a21a1144fd4f6892c111c00141932608d17d3a9 OP_EQUALVERIFY OP_CHECKSIG",
+                "hex": "76a9140a21a1144fd4f6892c111c00141932608d17d3a988ac",
+                "type": "PUBKEYHASH",
+                "reqSigs": 1,
+                "addresses": [
+                    "mgSXLa5sJHvBpYTKZ62aW9z2YWQNTJ59Zm"
+                ]
+            }
+        },
+        {
+            "value": 0.000006,
+            "n": 1,
+            "scriptPubKey": {
+                "asm": "OP_DUP OP_HASH160 0a21a1144fd4f6892c111c00141932608d17d3a9 OP_EQUALVERIFY OP_CHECKSIG",
+                "hex": "76a9140a21a1144fd4f6892c111c00141932608d17d3a988ac",
+                "type": "PUBKEYHASH",
+                "reqSigs": 1,
+                "addresses": [
+                    "mgSXLa5sJHvBpYTKZ62aW9z2YWQNTJ59Zm"
+                ]
+            }
+        }
+    ],
+    "blockhash": null,
+    "confirmations": 0,
+    "time": 1605903228,
+    "blocktime": 0,
+    "hex": "0200000002f98e5270d78c140abbde0646f3dd205c42f54678c084c914ad7353f73c76dcb2000000006b483045022100e3ae860d446af1199e2799361abf8cc4cae3648a029fed3ad926fb3206ae13770220797889b261ec643c0c1dca38855bd58b6b367a9a98cda43fa220d15a919cc89201210313f828eb023cde7a5924add3f2bd9c3e228b4e49ec6f550e8e1c5439572c238afffffffff98e5270d78c140abbde0646f3dd205c42f54678c084c914ad7353f73c76dcb2010000006b48304502210081baa63650e42672c8dde6d5b3b414e037102620b9154168c49abd4a90cc491c02204e5808826457bff853aa68c2f9ddaebf46baa3b77dfaee5c467b66eaa773690e01210313f828eb023cde7a5924add3f2bd9c3e228b4e49ec6f550e8e1c5439572c238affffffff023c000000000000001976a9140a21a1144fd4f6892c111c00141932608d17d3a988ac58020000000000001976a9140a21a1144fd4f6892c111c00141932608d17d3a988ac00000000"
 }
 ```
 
-
-
-
+And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our API Reference.
 
 
 
