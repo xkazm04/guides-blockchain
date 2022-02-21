@@ -37,6 +37,11 @@
     },
     {
       "type": "item",
+      "title": "How to store metadata to IPFS and include it in an NFT",
+      "uri": "/docs/How-to-store-metadata-to-IPFS-and-include-it-in-an-NFT.md"
+    },
+    {
+      "type": "item",
       "title": "Getting Started With Nft Metadata",
       "uri": "/docs/Getting-started-with-NFT-metadata.md"
     },
