@@ -32,6 +32,11 @@
     },
     {
       "type": "item",
+      "title": "How to mint NFTs with 1 API call",
+      "uri": "/docs/How-to-mint-NFTs-with-1-API-call.md"
+    },
+    {
+      "type": "item",
       "title": "Getting Started With Nft Metadata",
       "uri": "/docs/Getting-started-with-NFT-metadata.md"
     },
