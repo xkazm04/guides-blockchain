@@ -17,6 +17,16 @@
     },
     {
       "type": "item",
+      "title": "How to monitor transactions at any address",
+      "uri": "/docs/How-to-monitor-transactions-at-any-address.md"
+    },
+    {
+      "type": "item",
+      "title": "How to create an ERC-20 token",
+      "uri": "/docs/How-to-create-ERC-20-token.md"
+    },
+    {
+      "type": "item",
       "title": "Getting Started With Nft Metadata",
       "uri": "/docs/Getting-started-with-NFT-metadata.md"
     },
@@ -24,11 +34,6 @@
       "type": "item",
       "title": "How to create ERC-1155 token",
       "uri": "/docs/How-to-create-ERC-1155-token.md"
-    },
-    {
-      "type": "item",
-      "title": "How To Create Erc 20 Token",
-      "uri": "/docs/How-to-create-ERC-20-token.md"
     },
     {
       "type": "item",
