@@ -45,6 +45,11 @@
       "title": "How to create NFTs on Flow",
       "uri": "/docs/How-to-create-NFTs-on-Flow.md"
     },
+{
+      "type": "item",
+      "title": "How to create NFTs on Solana",
+      "uri": "/docs/How-to-create-NFTs-on-Solana.md"
+    },
     {
       "type": "item",
       "title": "How to create ERC-1155 token",
