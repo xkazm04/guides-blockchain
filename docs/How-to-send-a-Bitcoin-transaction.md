@@ -86,7 +86,7 @@ to: [{
  
 const transactionHash =  await sendBitcoinTransaction(false, body);
 ```
-```cURL-List of addresses as a source
+```cURL - List of addresses as a source
 curl --location --request POST 'https://api-eu1.tatum.io/v3/bitcoin/transaction' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
