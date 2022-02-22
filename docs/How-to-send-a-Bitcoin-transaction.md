@@ -9,48 +9,43 @@ To send a Bitcoin transaction, you have two options with Tatum:
 ![how_to_send_transaction_opravena-07.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/wtzsmVq0MxE)
 
 
-<!-- theme: info -->
+<div class="toolbar-note">
+**More about Bitcoin**
+The Bitcoin blockchain is not account-based but transaction-based. You operate with a list of previously received transactions and the assets within them. This means that you can use multiple transactions in one transaction as a source of your assets, not just one specific address.
 
->**More about Bitcoin**
->
->The Bitcoin blockchain is not account-based but transaction-based. You operate with a list of previously received transactions and the assets within them. This means that you can use multiple transactions in one transaction as a source of your assets, not just one specific address.
->
->To find out more about how Bitcoin works, check out [this article](https://www.investopedia.com/terms/u/utxo.asp).
+To find out more about how Bitcoin works, check out [this article](https://www.investopedia.com/terms/u/utxo.asp).
+</div>
 
 When you enter a list of addresses, all incoming transactions that have not previously been used are used as a source. When you enter a list of UTXOs, only specific unspent transactions that belong to you are used.
 
 ![how_to_send_transaction_opravena-04.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/R0Q7CooFpf8)
 
-<!-- theme: warning -->
-
->**Bitcoin transaction inputs**
->
->Please be aware that all of the assets that belong to the specific transaction are used as input, not only a fraction of them. To learn more about Bitcoin transactions, check out [this article](https://en.bitcoin.it/wiki/Transaction).
+<div class="toolbar-warning">
+**Bitcoin transaction inputs**
+Please be aware that all of the assets that belong to the specific transaction are used as input, not only a fraction of them. To learn more about Bitcoin transactions, check out [this article](https://en.bitcoin.it/wiki/Transaction).
+</div>
 
 Finally, you have to know how much bitcoin you want to send to whom. You need to define a list of recipient addresses with the specific amounts that each address is to receive. The sum of the assets being sent must be bigger than the sum of assets being received. The difference is the transaction fee that must be paid to the network.
 
 ![how_to_send_transaction_opravena-06.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/TwUCjcHqSxY)
 
-<!-- theme: info -->
-
->**Example**
->
->You want to use 10 BTC from 2 addresses as input and send it to 3 recipients, each of which will receive 3 BTC. The fee is 10 BTC - 9 BTC = 1 BTC.
-
+<div class="toolbar-tip">
+**Example**
+You want to use 10 BTC from 2 addresses as input and send it to 3 recipients, each of which will receive 3 BTC. The fee is 10 BTC - 9 BTC = 1 BTC.
+</div>
 ---
 
 ## Sending a Bitcoin transaction
 
-<!-- theme: warning -->
+<div class="toolbar-warning">
+**Securely signing transactions**
+In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
+Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms). 
+</div>
 
->**Securely signing transactions**
->
->In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
->
->Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms). 
+Enough of the theory. Let's send some bitcoin [using this API endpoint](https://developer.tatum.io/rest/blockchain/send-bitcoin-to-blockchain-addresses).
 
-Enough of the theory. Let's send some bitcoin [using this API endpoint](../docs/v3blockchain/b3A6MjkwNTc5Mzc-send-bitcoin-to-blockchain-addresses).
-
+<div class='tabbed-code-blocks'>
 ```SDK
 import {sendBitcoinTransaction} from '@tatumio/tatum';
 /**
@@ -58,7 +53,6 @@ import {sendBitcoinTransaction} from '@tatumio/tatum';
  * @param body - content of the transaction to send
  * @returns transaction Id
  */
- 
 const body = {
 // If source = Wallet address
 fromAddress: [{
@@ -81,7 +75,6 @@ to: [{
       address: "mhuKgqf7SLRWPX8Sfrqn68i5YcdWsFMRXF",
       value: 0.4
   }]}
- 
 const transactionHash =  await sendBitcoinTransaction(false, body);
 ```
 ```REST - List of addresses as a source
@@ -136,10 +129,11 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/bitcoin/transaction'
     ]
 }'
 ```
+</div>
 
-<!-- theme: warning -->
-
-> When using Tatum KMS to securely sign transactions, you will use a **signatureId** instead of a **privateKey** parameter in the body of the API request.
+<div class="toolbar-note">
+When using Tatum KMS to securely sign transactions, you will use a **signatureId** instead of a **privateKey** parameter in the body of the API request.
+</div>
 
 The response will contain a transaction ID, from which we can get information about the transaction.
 
@@ -153,8 +147,9 @@ The response will contain a transaction ID, from which we can get information ab
 ---
 
 ## Getting transaction details
-To get information about the transaction, you can use the transaction ID from the response of the previous request with the [Bitcoin/Get transaction endpoint](../docs/v3blockchain/b3A6MjkwNTc5MzI-get-transaction-by-hash).
+To get information about the transaction, you can use the transaction ID from the response of the previous request with the [Bitcoin/Get transaction endpoint](https://developer.tatum.io/rest/blockchain/get-transaction-by-hash).
 
+<div class='tabbed-code-blocks'>
 ```SDK
 import {btcGetTransaction} from '@tatumio/tatum';
 /**
@@ -167,6 +162,8 @@ const transaction = await abtcGetTransaction('962e4ad3781e7036ff3af6d880744fd3f0
 curl --location --request GET 'https://api-eu1.tatum.io/v3/bitcoin/transaction/962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f' \
 --header 'x-api-key: YOUR_API_KEY' 
 ```
+</div>
+
 The response will contain the details of the transaction you have performed.
 
 **Response:**
@@ -234,73 +231,7 @@ The response will contain the details of the transaction you have performed.
 }
 ```
 
-And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our [API Reference](../docs/v3blockchain/YXBpOjI5MDU3OTI1-bitcoin).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our [API Reference](https://developer.tatum.io/rest/blockchain/supported-services).
 
 
 
