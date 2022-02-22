@@ -3,7 +3,7 @@
 *Create flexible multi tokens with both fungible and non-fungible properties*
 
 ---
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 The [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) is a standardized smart contract with a predefined set of features. These tokens have properties in common with both fungible and non-fungible tokens. Any single contract may include any combination of fungible, non-fungible, or semi-fungible tokens.
 </div>
 
@@ -207,7 +207,7 @@ The response will contain a transaction ID from which you can obtain the details
 
 Since ERC-1155 smart contracts can include multiple tokens for the same ID, you can also mint multiple tokens for multiple IDs using the mint multi-token batch endpoint.
 
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 ```SDK
 import {Currency, mintMultiTokenBatch} from '@tatumio/tatum';
 /**
@@ -281,7 +281,7 @@ The response will contain a transaction ID from which you can obtain the details
 
 To transfer tokens from the address where they were issued to another blockchain address, you can use the transfer multi-token endpoint. You need the private key of the address where the tokens are located (address from the first call where the initial supply is distributed).
 
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 ```SDK
 import {Currency, transferMultiToken} from '@tatumio/tatum';
 /**
@@ -352,7 +352,7 @@ The response will contain a transaction ID from which you can obtain the details
 
 You can also transfer multiple tokens at once using the transfer multi-token batch endpoint. This method significantly saves gas costs, which is especially useful on the Ethereum blockchain.
 
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 ```SDK
 import {Currency, transferMultiTokenBatch} from '@tatumio/tatum';
 /**
@@ -430,7 +430,7 @@ The required parameters for this call are:
 - The **contractAddress** from which the tokens were minted
 - The **accountAddress** you'd like to get token balances for
 - The **tokenId** of the token you'd like to obtain a balance for
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 ```SDK
 import {Currency, getMultiTokensBalance} from '@tatumio/tatum';
   /**
@@ -463,7 +463,7 @@ The required parameters for this call are:
 - Each **accountAddress** you'd like to get token balances for
 - Each **tokenId** of the token you'd like to obtain a balance for
 
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 ```SDK
 import {Currency, getMultiTokensBatchBalance} from '@tatumio/tatum';
   /**
@@ -509,7 +509,7 @@ The required parameters for this call are:
 - The **contractAddress** from which the tokens were minted
 - The **tokenId** for which you'd like to obtain metadata
 
-<div class="toolbar-note">
+<div class="tabbed-code-blocks">
 ```SDK
 import {Currency, getMultiTokenMetadata} from '@tatumio/tatum';
   /**
@@ -534,114 +534,3 @@ curl --location --request GET 'https://api-eu1.tatum.io/v3/multitoken/metadata/C
 So that's all there is to it! Just a few calls to accomplish just about everything you need to with ERC-1155 multi-tokens. No need to install anything or learn Solidity, and you can perform the exact same operations on any blockchain that supports ERC-1155 tokens in Tatum.
 
 To find out more about the API calls we have just used, visit our API Reference.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

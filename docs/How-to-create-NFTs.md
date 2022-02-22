@@ -4,9 +4,9 @@
 
 ---
 
-<!-- theme: info -->
-
->The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
+<div class="toolbar-note">
+The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
+</div>
 
 
 NFTs have been making waves in the digital world recently and for good reason. These specialized tokens ensure verifiable authenticity and scarcity of digital assets, opening up a world of possibilities for a wide range of digital marketplaces.
@@ -26,17 +26,17 @@ It's a lot to know, and for developers who only need the basic features of ERC-7
 
 This is why we've made prebuilt ERC-721 smart contracts that are ready to deploy with one API. You can easily create NFTs without learning Solidity and can deploy them on your blockchain of choice.
 
-<!-- theme: success -->
+<div class="toolbar-tip">
 
->Check out the source code to our **ERC-721** smart contract on [GitHub](https://github.com/tatumio/tatum-middleware/blob/master/src/contracts/erc721/ERC721Full.sol).
-
+Check out the source code to our **ERC-721** smart contract on [GitHub](https://github.com/tatumio/tatum-middleware/blob/master/src/contracts/erc721/ERC721Full.sol).
+</div>
 ![ntf_-12.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/NyL8ch1C7Hk)
 
 In this guide, you will learn how to deploy an ERC-721 smart contract, and to mint, transfer, and burn tokens. Please also check out our workshop on working with NFTs for a live demo of the workflow in Postman:
 
 https://www.youtube.com/watch?time_continue=3&v=i86Nh-Srfsk&feature=emb_title&ab_channel=Tatum
 
-You can find all of the API calls we will be using in our [API documentation](../docs/v3smartContracts/YXBpOjIzMjQ5ODQ1-non-fungible-token-nft) or download our Postman collection for this guide [here](https://www.postman.com/blockchainnow/workspace/tatum-io/folder/10167180-22217e73-44f0-414d-b865-2098a72c2050?ctx=documentation).
+You can find all of the API calls we will be using in our [API documentation](https://developer.tatum.io/rest/smart-contracts/non-fungible-token-nft) or download our Postman collection for this guide [here](https://www.postman.com/blockchainnow/workspace/tatum-io/folder/10167180-22217e73-44f0-414d-b865-2098a72c2050?ctx=documentation).
 
 Tatum currently supports the following blockchains for deploying our prebuilt NFTs:
 - **Ethereum**
@@ -51,16 +51,18 @@ To create and deploy NFTs using Tatum, all you need is one simple API call. This
 
 In this example, we are using [Celo](https://celo.org/) because it is fast, cheap and you can pay for transactions with a stable coin (cUSD). However, you can deploy an NFT smart contract on any other supported blockchain with the same API call by changing the name of the blockchain in the "chain" field of the call.
 
-<!-- theme: warning -->
 
->**Securely signing transactions**
->
->In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
->
->Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 
-The following API call will [deploy an NFT smart contract](../docs/v3smartContracts/b3A6MzA3NjA5MDg-deploy-nft-smart-contract) on Celo:
+**Securely signing transactions**
+<div class="toolbar-warning">
+In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
 
+Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+</div>
+
+The following API call will [deploy an NFT smart contract](https://developer.tatum.io/rest/smart-contracts#/b3A6MzA3NjA5MDg-deploy-nft-smart-contract) on Celo:
+
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await deployNFT(false, {
     body.chain: Currency.CELO,
@@ -102,15 +104,15 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/deploy' \
   "feeCurrency": "CELO"
 }'
 ```
+</div>
 
 The following parameters should be present in the API request body:
 - **chain** - The blockchain on which you are deploying the NFT smart contract.
 - **name** - The name of the NFTs minted from the contract.
-- **publicMint** - If set to "true" any user will be able to mint NFTs from this smart contract. If set to "false" only the private key that created the contract or other private IDs added using the [add NFT minter](../docs/v3smartContracts/b3A6MzA3NjA4OTg-add-nft-minter) endpoint will be able to mint NFTs from the contract.
+- **publicMint** - If set to "true" any user will be able to mint NFTs from this smart contract. If set to "false" only the private key that created the contract or other private IDs added using the [add NFT minter](https://developer.tatum.io/rest/smart-contracts#/b3A6MzA3NjA4OTg-add-nft-minter) endpoint will be able to mint NFTs from the contract.
 - **symbol** - The symbol of the NFTs to be minted from the contract.
 - **fromPrivateKey** - The private key which will pay for the gas fees to deploy the contract and will automatically be able to mint NFTs from it.
-- **signatureId** - The ID of the signed transaction from KMS. This is used in place of a private key to sign transactions securely and locally. For more info on KMS, please refer to [this guide](../docs/tutorials/ZG9jOjI5NzU0NDg4-how-to-securely-store-private-keys-and-sign-transactions).
-- **provenance** - If set to "true" this smart contract will be able to mint NFTs that record provenance data and pay out percentage royalties. For more on how to create and work with provenance NFTs, please see [this guide](url).
+- **signatureId** - The ID of the signed transaction from KMS. This is used in place of a private key to sign transactions securely and locally. 
 - **feeCurrency** - The currency in which the gas fees for the operation will be paid (only for Celo).
 
 **Response**:
@@ -126,6 +128,7 @@ The following parameters should be present in the API request body:
 
 The response to the above call is a transaction ID . Using the transaction ID, we can use the [Get contract address from transaction](../docs/v3smartContracts/b3A6NDAxOTkzMjM) endpoint to obtain the address of the NFT smart contract.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const contractAddress = await getNFTContractAddress(Currency.CELO, '0xa61f21f5c33996f7e8a6d209513fb446ea345565f10e614e40a7978e3373b919'
 ```
@@ -134,6 +137,7 @@ curl --request GET \
   --url https://api-eu1.tatum.io/v3/blockchain/sc/address/CELO/0xa61f21f5c33996f7e8a6d209513fb446ea345565f10e614e40a7978e3373b919 \
   --header 'x-api-key: REPLACE_KEY_VALUE'
 ```
+</div>
 
 The required parameters to enter are:
 - The **chain** you are working on.
@@ -163,6 +167,7 @@ When your NFT smart contract is deployed and you know the contract address, you 
 
 Every token should have metadata as a JSON schema containing additional information about the token, like the image URL, description, etc. This metadata is the "content" of the NFT and usually links to a picture, video, audio file, or another type of digital asset on IPFS or another hosting service. To upload and retrieve data to IPFS natively using Tatum, please have a look at our [Storage/IPFS](../docs/storage/YXBpOjk5NDk5Mw-storage-services) endpoints, and refer to our full guide on how to upload data to IPFS.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await mintNFTWithUri(false, {
     to: '0x8cb76aed9c5e336ef961265c6079c14e9cd3d2ea',
@@ -232,7 +237,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
    "feeCurrency": "CUSD"
 }'
 ```
-
+</div>
 The API request body to [mint a new NFT](../docs/v3smartContracts/b3A6MzA3NjA4OTQ-mint-nft) should contain the following values. The authorAddresses, cashbackValues, and fixedValues fields are only required if you are minting provenance NFTs that pay royalties in percentages. For more on working with provenance NFTs please refer to this guide.
 
 - **chain** - The blockchain on which you are minting the NFT.
@@ -264,6 +269,7 @@ The response will contain a transaction ID which can be fetched using the get NF
 
 To transfer tokens from the address where they were issued to another blockchain address, you can use the [Transfer NFT token](../docs/v3smartContracts/b3A6MzA3NjA4OTU-transfer-nft-token) endpoint. You need the private key of the address where the tokens are located (the contract address from the first call where the initial supply is distributed).
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await transferNFT(false, {
     to: '0xfb99F8aE9b70A0C8Cd96aE665BBaf85A7E01a2ef',
@@ -309,7 +315,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/transaction' \
   "feeCurrency": "CUSD"
 }'
 ```
-
+</div>
 The API request body should contain the following parameters. The **provenanceData** and **tokenPrice** parameters are only required when transferring a provenance NFT that will record provenance data and/or pay cashback.
 - **chain** - The blockchain on which you are transferring the NFT.
 - **tokenId** - The ID of the token to be transferred.
@@ -337,6 +343,7 @@ Again, the response contains a transaction ID from which we can get details of t
 
 If you want to display a list of tokens that someone possesses, you can use the Get NFT Account balance endpoint.
 
+<div class='tabbed-code-blocks'>
 ```JavaScript
 const nfts = await getNFTsByAddress(
     Currency.CELO,
@@ -347,7 +354,7 @@ const nfts = await getNFTsByAddress(
 curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/balance/CELO/0x1860Cf5A199892BC527A0698e7be08a7C6Bc6064/0xfb99F8aE9b70A0C8Cd96aE665BBaf85A7E01a2ef' \
 --header 'x-api-key: YOUR_API_KEY'
 ```
-
+</div>
 **Response**:
 ```json
 {
@@ -362,7 +369,7 @@ The response contains the token IDs of the NFTs at the specified address.
 ## Obtaining metadata for a specific token
 
 If you want to obtain a metadata URL for a token, you can use the [Get NFT Token metadata](../docs/v3smartContracts/b3A6MzA3NjA5MDY-get-nft-token-metadata) endpoint.
-
+<div class='tabbed-code-blocks'>
 ```SDK
 const metadataURI = await getNFTMetadataURI(
     Currency.CELO,
@@ -374,7 +381,7 @@ const metadataURI = await getNFTMetadataURI(
 curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/metadata/CELO/0x1860Cf5A199892BC527A0698e7be08a7C6Bc6064/1' \
 --header 'x-api-key: YOUR_API_KEY'
 ```
-
+</div>
 The required parameters are:
 - The **address** of the smart contract from which the NFT was minted
 - The **token ID** of the NFT
@@ -393,7 +400,7 @@ The response will contain the URL of the NFT's metadata.
 ## And that's it!
 
 Pretty simple, right? You only had to make three calls to Tatum to deploy your own token, issue a unique one, and transfer it. Another two for getting useful information. You don't have to install anything, learn Solidity, etc.
-To find out more about the API calls we have just used, visit our [API Reference](../docs/v3smartContracts/YXBpOjIzMjQ5ODQ1-non-fungible-token-nft).
+To find out more about the API calls we have just used, visit our [API Reference](https://developer.tatum.io/rest/smart-contracts/non-fungible-token-nft).
 Also, be sure to watch through our workshops on How to create NFT marketplaces:
 
 **Frontend and user journey:**

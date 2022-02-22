@@ -23,7 +23,7 @@ The total percentage royalty of each transaction to be paid out to the creators 
 The **share** field contains the different percentages of the total **sellerFeeBasisPoints** to be divided among the creators. If there are 2 creators, one with a share value of “30” and one with a **share** value of “70”, 30% and 70% of the total **sellerFeeBasisPoints** royalty will be paid to each respective creator.
 
 Use the following API endpoint to mint an NFT on Solana:
-
+<div class='tabbed-code-blocks'>
 ```REST API  
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint/' \
 --header 'x-api-key: REPLACE_KEY_VALUE' \
@@ -64,7 +64,7 @@ console.log(
 )
 
 ```
-
+</div>
 The required fields in the API endpoint body are:
 - **from** - the address of the creator of the NFT from which the gas fees will be paid 
 - **chain** - the blockchain on which the NFT is being minted (in this case, “SOL”) 
@@ -100,7 +100,7 @@ The response will contain a transaction ID, and two additional parameters that a
 The way the Solana blockchain works with minting and transferring NFTs uses **nftAccountAddresses**. For practical use of Tatum’s API, this makes very little difference, but it is important to know that for transferring NFTs, the **nftAddress** of the NFT is used, NOT the **nftAccountAddress**.
 
 Use the following API endpoint to transfer an NFT on Solana:
-
+<div class='tabbed-code-blocks'>
 ```REST API
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/nft/transaction \
@@ -130,7 +130,7 @@ console.log(
 )
 
 ```
-
+</div>
 The required parameters for the API endpoint body are:
 - **chain** - the chain on which you are transferring the NFT (in this case, “SOL”) from - the sender’s account address 
 - **to** - the recipient’s account address 
@@ -145,51 +145,5 @@ The response will contain a transaction ID:
 ```
 
 And that’s it! Two API calls and you can start minting and transferring NFTs on Solana like a pro. To see the rest of the API endpoints available to you for Solana in Tatum, check out our API documentation.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

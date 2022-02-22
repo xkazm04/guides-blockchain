@@ -124,19 +124,3 @@ That was super easy. You made only three calls to Tatum, and you were able to ge
 
 To find out more about the API calls we have just used, [visit our API reference](https://developer.tatum.io/rest/blockchain).
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
