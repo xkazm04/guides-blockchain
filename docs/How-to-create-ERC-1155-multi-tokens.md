@@ -3,10 +3,9 @@
 *Create flexible multi tokens with both fungible and non-fungible properties*
 
 ---
-
-<!-- theme: info -->
-
->The [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) is a standardized smart contract with a predefined set of features. These tokens have properties in common with both fungible and non-fungible tokens. Any single contract may include any combination of fungible, non-fungible, or semi-fungible tokens.
+<div class="toolbar-note">
+The [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) is a standardized smart contract with a predefined set of features. These tokens have properties in common with both fungible and non-fungible tokens. Any single contract may include any combination of fungible, non-fungible, or semi-fungible tokens.
+</div>
 
 NFTs are typically made using ERC-721 smart contracts on Ethereum-compatible blockchains. While this type of contract gives them the unique properties that make them so desirable (scarcity, verifiable authenticity), it also has certain limitations.
 
@@ -24,9 +23,8 @@ However, creating an ERC-1155 smart contract on an Ethereum-compatible blockchai
 
 It's a lot to know, and for developers who only need the basic features of ERC-1155 tokens, it would take weeks to figure it all out.
 
-<!-- theme: success -->
 
->Tatum has a prebuilt ERC-1155 contract ready for deployment. The source code is available on [GitHub](https://github.com/tatumio/smart-contracts/blob/master/contracts/token/ERC1155/Tatum1155.sol).
+<div class="toolbar-note">Tatum has a prebuilt ERC-1155 contract ready for deployment. The source code is available on [GitHub](https://github.com/tatumio/smart-contracts/blob/master/contracts/token/ERC1155/Tatum1155.sol).</div>
 
 Please refer to the guide below and the following workshop to learn how to create and work with ERC-1155 multi-tokens:
 
@@ -40,17 +38,19 @@ To create and deploy multi tokens using Tatum, all you need is one simple API ca
 
 In this example, we are using [Celo](https://celo.org/) because it is fast, cheap and you can pay for transactions with a stable coin (cUSD). The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
 
-<!-- theme: warning -->
->In this guide, we are signing transactions using a private key via API. This is fine for testing and demo purposes, but for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+---
+<div class="toolbar-warning">
+In this guide, we are signing transactions using a private key via API. This is fine for testing and demo purposes, but for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+</div>
 
 Use the following API endpoint to deploy an ERC-1155 smart contract:
-
+<div class='tabbed-code-blocks'>
 ```SDK
 import {Currency, deployMultiToken} from '@tatumio/tatum';
 /**
  * Deploy MultiTokens (1155) contract.
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://tatum.io/apidoc#operation/DeployMultiToken
+ * @param body - body of the request - https://developer.tatum.io/rest/smart-contracts#/deploy-multi-token-smart-contract
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
@@ -94,6 +94,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/multitoken/deploy/' 
     }
 }'
 ```
+</div>
 The response will contain a transaction ID from which we can obtain the smart contract's address.
 
 ```Response
@@ -111,6 +112,7 @@ The required parameters are:
 - The **chain** you are working on
 - The **transactionId** in the response to the previous request
 
+<div class='tabbed-code-blocks'>
 ```SDK
 import {Currency, getNFTContractAddress} from '@tatumio/tatum';
 const contractAddress = await getNFTContractAddress(Currency.CELO, '0xd17dbf37a9b2467c69ccf9fab35af2f2e7f329f3c760f684373625f5af2331bd');
@@ -120,7 +122,7 @@ curl --request GET \
   --url https://api-eu1.tatum.io/v3/blockchain/sc/address/CELO/0xd17dbf37a9b2467c69ccf9fab35af2f2e7f329f3c760f684373625f5af2331bd \
   --header 'x-api-key: REPLACE_KEY_VALUE'
 ```
-
+</div>
 The response will contain the address of the NFT smart contract you deployed in the previous step.
 
 ```Response
@@ -135,6 +137,7 @@ The response will contain the address of the NFT smart contract you deployed in 
 
 When your smart contract is deployed and you know the contract address, you can issue new tokens with the mint multi-token endpoint. This endpoint will create a new token with a unique identifier. Every token should have [metadata as a JSON schema](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md#specification) containing additional information about the token, like the image URL, description, etc.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 import {Currency, mintMultiToken} from '@tatumio/tatum';
 /**
@@ -193,7 +196,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/multitoken/mint/' \
     }
 }'
 ```
-
+</div>
 The response will contain a transaction ID from which you can obtain the details of the transaction.
 
 ```Response
@@ -204,12 +207,13 @@ The response will contain a transaction ID from which you can obtain the details
 
 Since ERC-1155 smart contracts can include multiple tokens for the same ID, you can also mint multiple tokens for multiple IDs using the mint multi-token batch endpoint.
 
+<div class="toolbar-note">
 ```SDK
 import {Currency, mintMultiTokenBatch} from '@tatumio/tatum';
 /**
  * Mint batch of MultiTokens (1155) with Tatum KMS.
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://tatum.io/apidoc#operation/MintMultiToken
+ * @param body - body of the request - https://developer.tatum.io/rest/smart-contracts#/b3A6MzA4NDAzMzU-mint-multi-token
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
@@ -261,7 +265,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/multitoken/mint/batc
     }
 }'
 ```
-
+</div>
 The response will contain a transaction ID from which you can obtain the details of the transaction.
 
 ```Response
@@ -277,12 +281,13 @@ The response will contain a transaction ID from which you can obtain the details
 
 To transfer tokens from the address where they were issued to another blockchain address, you can use the transfer multi-token endpoint. You need the private key of the address where the tokens are located (address from the first call where the initial supply is distributed).
 
+<div class="toolbar-note">
 ```SDK
 import {Currency, transferMultiToken} from '@tatumio/tatum';
 /**
  * Transfer MultiTokens (1155)
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://tatum.io/apidoc.php#operation/TransferMultiToken
+ * @param body - body of the request 
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
@@ -335,6 +340,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/multitoken/transacti
     }
 }'
 ```
+</div>
 
 The response will contain a transaction ID from which you can obtain the details of the transaction.
 
@@ -346,12 +352,13 @@ The response will contain a transaction ID from which you can obtain the details
 
 You can also transfer multiple tokens at once using the transfer multi-token batch endpoint. This method significantly saves gas costs, which is especially useful on the Ethereum blockchain.
 
+<div class="toolbar-note">
 ```SDK
 import {Currency, transferMultiTokenBatch} from '@tatumio/tatum';
 /**
  * Transfer MultiTokens (1155)
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://tatum.io/apidoc.php#operation/TransferMultiToken
+ * @param body - body of the request 
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
@@ -404,7 +411,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/multitoken/transacti
     }
 }'
 ```
-
+</div>
 The response will contain a transaction ID from which you can obtain the details of the transaction.
 
 ```Response
@@ -423,7 +430,7 @@ The required parameters for this call are:
 - The **contractAddress** from which the tokens were minted
 - The **accountAddress** you'd like to get token balances for
 - The **tokenId** of the token you'd like to obtain a balance for
-
+<div class="toolbar-note">
 ```SDK
 import {Currency, getMultiTokensBalance} from '@tatumio/tatum';
   /**
@@ -440,7 +447,7 @@ const balance = getMultiTokensBalance(Currency.CELO,
 curl --location --request GET 'https://api-eu1.tatum.io/v3/multitoken/balance/CELO/0x7e8fada7108d0DBbE8C6aca50d0FFb13CC34Eb81/0x8cb76aed9c5e336ef961265c6079c14e9cd3d2ea/1' \
 --header 'x-api-key: 4966d428-9507-45cb-9f90-02cca00674bd'
 ```
-
+</div>
 The response will contain the balance of the tokens for the specific token ID at the designated address.
 
 ```Response
@@ -456,6 +463,7 @@ The required parameters for this call are:
 - Each **accountAddress** you'd like to get token balances for
 - Each **tokenId** of the token you'd like to obtain a balance for
 
+<div class="toolbar-note">
 ```SDK
 import {Currency, getMultiTokensBatchBalance} from '@tatumio/tatum';
   /**
@@ -476,6 +484,7 @@ const balance = await getMultiTokensBatchBalance(
 curl --location --request GET 'https://api-eu1.tatum.io/v3/multitoken/balance/batch/CELO/0x7e8fada7108d0DBbE8C6aca50d0FFb13CC34Eb81/?tokenId=1,2&address=0x8cb76aed9c5e336ef961265c6079c14e9cd3d2ea,0x3223AEB8404C7525FcAA6C512f91e287AE9FfE7B' \
 --header 'x-api-key: 4966d428-9507-45cb-9f90-02cca00674bd'
 ```
+</div>
 
 The response will contain the balances of each token ID at each address specified in the call.
 
@@ -500,6 +509,7 @@ The required parameters for this call are:
 - The **contractAddress** from which the tokens were minted
 - The **tokenId** for which you'd like to obtain metadata
 
+<div class="toolbar-note">
 ```SDK
 import {Currency, getMultiTokenMetadata} from '@tatumio/tatum';
   /**
@@ -519,6 +529,7 @@ curl --location --request GET 'https://api-eu1.tatum.io/v3/multitoken/metadata/C
     "data": "https://example.com/1"
 }
 ```
+</div>
 
 So that's all there is to it! Just a few calls to accomplish just about everything you need to with ERC-1155 multi-tokens. No need to install anything or learn Solidity, and you can perform the exact same operations on any blockchain that supports ERC-1155 tokens in Tatum.
 
