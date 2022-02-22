@@ -21,7 +21,7 @@ In order to send Ethereum to another blockchain address, you have to provide the
 Enough of the theory. Let's send some Ethereum using the Eth blockchain transfer endpoint. To send ERC-20 tokens, you'll also need to include the **contractAddress** of the ERC-20 token you're sending and **digits** (number of decimal points) the ERC-20 token has.
 
 
-```JavaScript
+```SDK
 import {sendEthOrErc20Transaction} from '@tatumio/tatum';
 /**
  * Send Ethereum or supported ERC20 transaction to the blockchain.
@@ -43,7 +43,7 @@ import {sendEthOrErc20Transaction} from '@tatumio/tatum';
 });
 
 ```
-```cURL + private key
+```REST API call with Private key
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/ethereum/transaction \
   --header 'content-type: application/json' \
@@ -65,7 +65,7 @@ curl --request POST \
 }}'
 
 ```
-```cURL + KMS
+```REST API call with KMS
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/ethereum/transaction \
   --header 'content-type: application/json' \
@@ -109,7 +109,7 @@ The response will contain a transaction ID that you can use to get information a
 
 To get the details of the transaction, use the transaction ID from the response of the previous call with the Ethereum/Get transaction endpoint.
 
-```JavaScript
+```SDK
 import {ethGetTransaction } from '@tatumio/tatum';
 /**
  * @param hash - transaction hash
@@ -117,7 +117,7 @@ import {ethGetTransaction } from '@tatumio/tatum';
  */
 const transaction = await ethGetTransaction('962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f');
 ```
-```cURL
+```REST API call
 curl --location --request GET 'https://api-eu1.tatum.io/v3/ethereum/transaction/0x7698f412a70385f3e1ab513a9ecf5edd7dc1c76f0e369b1c7b059d98892091c0' \
 --header 'x-api-key: YOUR_API_KEY' 
 ```

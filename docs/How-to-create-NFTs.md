@@ -61,7 +61,7 @@ In this example, we are using [Celo](https://celo.org/) because it is fast, chea
 
 The following API call will deploy an NFT smart contract on Celo:
 
-```JavaScript
+```SDK
 const transactionHash = await deployNFT(false, {
     body.chain: Currency.CELO,
     body.name: 'MY_ERC721',
@@ -72,7 +72,7 @@ const transactionHash = await deployNFT(false, {
     body.feeCurrency: Currency.CUSD
 });
 ```
-```cURL + private key
+```REST API call with Private key
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/deploy' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -86,7 +86,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/deploy' \
   "feeCurrency": "CUSD"
 }'
 ```
-```cURL + KMS
+```REST API call with KMS
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/deploy' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -123,10 +123,10 @@ The following parameters should be present in the API request body:
 
 The response to the above call is a transaction ID . Using the transaction ID, we can use the Get contract address from transaction endpoint to obtain the address of the NFT smart contract.
 
-```JavaScript
+```SDK
 const contractAddress = await getNFTContractAddress(Currency.CELO, '0xa61f21f5c33996f7e8a6d209513fb446ea345565f10e614e40a7978e3373b919'
 ```
-```cURL
+```REST API call
 curl --request GET \
   --url https://api-eu1.tatum.io/v3/blockchain/sc/address/CELO/0xa61f21f5c33996f7e8a6d209513fb446ea345565f10e614e40a7978e3373b919 \
   --header 'x-api-key: REPLACE_KEY_VALUE'
@@ -158,7 +158,7 @@ When your NFT smart contract is deployed and you know the contract address, you 
 
 Every token should have metadata as a JSON schema containing additional information about the token, like the image URL, description, etc. This metadata is the "content" of the NFT and usually links to a picture, video, audio file, or another type of digital asset on IPFS or another hosting service. To upload and retrieve data to IPFS natively using Tatum, please have a look at our Storage/IPFS endpoints, and refer to our full guide on how to upload data to IPFS.
 
-```JavaScript
+```SDK
 const transactionHash = await mintNFTWithUri(false, {
     to: '0x8cb76aed9c5e336ef961265c6079c14e9cd3d2ea',
     url: 'https://my_token_data.com',
@@ -174,7 +174,7 @@ const transactionHash = await mintNFTWithUri(false, {
     feeCurrency: Currency.CUSD
 });
 ```
-```cURL + private key
+```REST API call with Private key
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -200,7 +200,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
    "feeCurrency": "CUSD"
 }'
 ```
-```cURL + KMS
+```REST API call with KMS
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -257,7 +257,7 @@ The response will contain a transaction ID which can be fetched using the get NF
 
 To transfer tokens from the address where they were issued to another blockchain address, you can use the Transfer NFT token endpoint. You need the private key of the address where the tokens are located (the contract address from the first call where the initial supply is distributed).
 
-```JavaScript
+```SDK
 const transactionHash = await transferNFT(false, {
     to: '0xfb99F8aE9b70A0C8Cd96aE665BBaf85A7E01a2ef',
     tokenId: '1',
@@ -270,7 +270,7 @@ const transactionHash = await transferNFT(false, {
     feeCurrency: Currency.CUSD
 });
 ```
-```cURL + private key
+```REST API call with Private key
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/transaction' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -286,7 +286,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/transaction' \
   "feeCurrency": "CUSD"
 }'
 ```
-```cURL + KMS
+```REST API call with KMS
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/transaction' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -353,14 +353,14 @@ The response contains the token IDs of the NFTs at the specified address.
 
 If you want to obtain a metadata URL for a token, you can use the Get NFT Token metadata endpoint.
 
-```JavaScript
+```SDK
 const metadataURI = await getNFTMetadataURI(
     Currency.CELO,
     '0x1860Cf5A199892BC527A0698e7be08a7C6Bc6064',
     '1',
 )
 ```
-```cURL
+```REST API call
 curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/metadata/CELO/0x1860Cf5A199892BC527A0698e7be08a7C6Bc6064/1' \
 --header 'x-api-key: YOUR_API_KEY'
 ```

@@ -41,7 +41,7 @@ To create and deploy an ERC-20 token using Tatum, all you need is one simple API
 >
 >Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 
-```JavaScript
+```SDK
 import {prepareDeployErc20SignedTransaction} from '@tatumio/tatum'
 /**
  * Sign Ethereum deploy ERC20 transaction with private keys locally. Nothing is broadcast to the blockchain.
@@ -67,7 +67,7 @@ const body = {
 }
 const prepareDeploy = await prepareDeployErc20SignedTransaction(body)
 ```
-```cURL + private key
+```REST API call with Private key
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/blockchain/token/deploy \
   --header 'content-type: application/json' \
@@ -89,7 +89,7 @@ curl --request POST \
       }
 }'
 ```
-```cURL + KMS
+```REST API call with KMS
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/blockchain/token/deploy \
   --header 'content-type: application/json' \
@@ -126,10 +126,10 @@ The response will contain a transaction ID, from which you can obtain the addres
 
 To obtain the address of the smart contract you've deployed, use the following API request:
 
-```JavaScript
+```SDK
 const contractAddress = await getNFTContractAddress(Currency.ETH, '0x75808516abfb2fa4e44fd2fc85863d15e11bdc3f90769962e3f34d7a17df4f0f');
 ```
-```cURL
+```REST API call 
 curl --location --request GET 'https://api-eu1.tatum.io/v3/blockchain/sc/address/ETH/0x75808516abfb2fa4e44fd2fc85863d15e11bdc3f90769962e3f34d7a17df4f0f' \
 --header 'x-api-key: YOUR_API_KEY'
 ```
@@ -147,7 +147,7 @@ The response will contain the address of the smart contract you've deployed.
 
 To transfer the tokens from the address where they were issued to another blockchain address, you can use the Transfer ERC20 token endpoint from the Fungible Token section of the API documentation. You need the private key of the address where tokens are located (address from the first call where the initial supply is distributed) or the signature ID of the signed transaction from Tatum KMS.
 
-```JavaScript
+```SDK
 import {sendEthOrErc20Transaction} from '@tatumio/tatum';
 /**
  * Send Ethereum or supported ERC20 transaction to the blockchain.
@@ -168,7 +168,7 @@ import {sendEthOrErc20Transaction} from '@tatumio/tatum';
   to: "0x687422eEA2cB73B5d3e242bA5456b782919AFc85"
 });
 ```
-```cURL + private key
+```REST API call with Private key
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/blockchain/token/transaction \
   --header 'content-type: application/json' \
@@ -188,7 +188,7 @@ curl --request POST \
       }
 }'
 ```
-```cURL + KMS
+```REST API call with KMS
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/blockchain/token/transaction \
   --header 'content-type: application/json' \

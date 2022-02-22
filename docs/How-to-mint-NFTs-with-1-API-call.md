@@ -40,7 +40,7 @@ With NFT Express, you can use the same simple API endpoint you would to mint NFT
 2. Next, enter the API key in the environment variables in your IDE or into the header of the direct API request. To use JavaScript, please download and install the [Tatum JavaScript SDK](https://tatum.io/tatum-js.html).
 3. And now, all you need is to send the following API request to mint an NFT:
 
-```JavaScript
+```SDK
 const transactionHash = await mintNFTWithUri(false, {
     chain: Currency.CELO
     to: '0x8cb76aed9c5e336ef961265c6079c14e9cd3d2ea',
@@ -48,7 +48,7 @@ const transactionHash = await mintNFTWithUri(false, {
     feeCurrency: Currency.CELO
 });
 ```
-```cURL
+```REST API call
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \

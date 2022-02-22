@@ -21,7 +21,7 @@ Today, you will be working with Bitcoin to generate a BIP44 compatible wallet. T
 
 To generate a Bitcoin wallet, you need to call a request to the Bitcoin/wallet endpoint.
 
-```JavaScript
+```SDK
 // You need to install Javascript library
 // https://github.com/tatumio/tatum-js
 const {generateWallet, Currency} = require("@tatumio/tatum");
@@ -29,7 +29,7 @@ const {generateWallet, Currency} = require("@tatumio/tatum");
 const btcWallet = async generateWallet(Currency.BTC, false);
 console.log(btcWallet);
 ```
-```cURL
+```REST API call
 curl --request GET \
   --url 'https://api-eu1.tatum.io/v3/bitcoin/wallet' \
   --header 'x-api-key: YOUR_API_KEY'
@@ -60,14 +60,14 @@ A mnemonic is a 24 word-long string that you can understand as a password to our
 Every wallet generated from Tatum holds more than 2 billion addresses. To generate a specific address, you can use an endpoint to generate the address - Bitcoin/address, where you enter your xpub and the index of the address you want to generate.
 
 
-```JavaScript
+```SDK
 // Replace <<xpub>> with xpub you've got from step 2
 const {generateAddressFromXPub, Currency} = require("@tatumio/tatum");
 
 const btcAddress = generateAddressFromXPub(Currency.BTC, false, "<<xpub>>", 1);
 console.log(btcAddress);
 ```
-```cURL
+```REST API call
 curl --request GET \
   --url https://api-eu1.tatum.io/v3/bitcoin/address/xpub6FPGLmppWEemTJ56aq6wcSkjeZN4iEw1CBvQzkusgbJpqyoiPPJASLpbduzKrNF54i348moHyoVGkyz1H2TC3iEPLfacjPFEfTENkD6YzzZ/1 \
   --header 'x-api-key: YOUR_API_KEY'
@@ -84,14 +84,14 @@ The response contains the address for index number 1.
 
 To generate a private key, the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.
 
-```JavaScript
+```SDK
 // Replace <<mnemonic>> with xpub you've got from step 2
 const {generatePrivateKeyFromMnemonic, Currency} = require("@tatumio/tatum");
 
 const btcPrivateKey = await generatePrivateKeyFromMnemonic(Currency.BTC, false, "<<mnemonic>>", 1);
 console.log(btcPrivateKey);
 ```
-```cURL
+```REST API call
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/bitcoin/wallet/priv \
   --header 'content-type: application/json' \

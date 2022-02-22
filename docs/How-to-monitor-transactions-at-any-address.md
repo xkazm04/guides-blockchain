@@ -26,7 +26,7 @@ In Tatum, webhook notifications work as subscriptions to blockchain addresses. W
 
 To create a subscription to monitor a blockchain address, you just need to send the following API call:
 
-```JavaScript
+```SDK
 import { createNewSubscription, CreateSubscription, SubscriptionType } from '@tatumio/tatum'
 
 export const createAddressNotificationTransactionSubscription = async () => {
@@ -42,7 +42,7 @@ export const createAddressNotificationTransactionSubscription = async () => {
 }
 
 ```
-```cURL
+```REST API call
 curl --location --request POST 'https://api-eu1.tatum.io/v3/subscription' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \

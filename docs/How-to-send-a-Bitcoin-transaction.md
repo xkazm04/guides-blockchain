@@ -53,7 +53,7 @@ Enough of the theory. Let's send some bitcoin using this API endpoint.
 
 
 
-```JavaScript
+```SDK
 import {sendBitcoinTransaction} from '@tatumio/tatum';
 /**
  * @param testnet - mainnet or testnet version
@@ -86,7 +86,7 @@ to: [{
  
 const transactionHash =  await sendBitcoinTransaction(false, body);
 ```
-```cURL - List of addresses as a source
+```REST - List of addresses as a source
 curl --location --request POST 'https://api-eu1.tatum.io/v3/bitcoin/transaction' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -109,7 +109,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/bitcoin/transaction'
     ]
 }'
 ```
-```cURL - List of UTXOs as a source
+```REST - List of UTXOs as a source
 curl --location --request POST 'https://api-eu1.tatum.io/v3/bitcoin/transaction' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -155,7 +155,7 @@ The response will contain a transaction ID, from which we can get information ab
 ## Getting transaction details
 To get information about the transaction, you can use the transaction ID from the response of the previous request with the Bitcoin/Get transaction endpoint.
 
-```JavaScript
+```SDK
 import {btcGetTransaction} from '@tatumio/tatum';
 /**
  * @param hash - transaction hash
@@ -163,7 +163,7 @@ import {btcGetTransaction} from '@tatumio/tatum';
  */
 const transaction = await abtcGetTransaction('962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f');
 ```
-```cURL
+```REST API call
 curl --location --request GET 'https://api-eu1.tatum.io/v3/bitcoin/transaction/962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f' \
 --header 'x-api-key: YOUR_API_KEY' 
 ```

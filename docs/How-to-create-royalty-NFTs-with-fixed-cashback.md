@@ -110,7 +110,7 @@ To get the address of the smart contract, use the transaction ID in the response
 ```SDK
 const contractAddress = await getNFTContractAddress(Currency.CELO, '0xe9d62746dba8d39035142420eeb25dcaed717e615e06ed797118dc55aa5863f9');
 ```
-```REST API
+```REST API call
 curl --request GET \
   --url https://api-eu1.tatum.io/v3/blockchain/sc/address/CELO/0xe9d62746dba8d39035142420eeb25dcaed717e615e06ed797118dc55aa5863f9 \
   --header 'x-api-key: REPLACE_KEY_VALUE'
@@ -150,7 +150,7 @@ const transactionHash = await mintNFTWithUri(false, {
     feeCurrency: Currency.CUSD
 });
 ```
-```REST API call with private key
+```REST API call with Private key
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
@@ -222,7 +222,7 @@ const transactionHash = await transferNFT(false, {
     feeCurrency: Currency.CUSD
 });
 ```
-```REST API call with private key
+```REST API call with Private key
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/transaction' \
 --header 'x-api-key: YOUR_API_KEY' \
 --header 'Content-Type: application/json' \
