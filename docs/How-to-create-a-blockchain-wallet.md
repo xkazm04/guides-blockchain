@@ -21,7 +21,7 @@ Today, you will be working with Bitcoin to generate a BIP44 compatible wallet. T
 
 ## Creating a blockchain wallet
 
-To generate a Bitcoin wallet, you need to call a request to the Bitcoin/wallet endpoint.
+To generate a Bitcoin wallet, you need to call a request to the [Bitcoin/wallet](../docs/v3blockchain/b3A6MjkwNTc5MjY-generate-bitcoin-wallet) endpoint.
 
 ```SDK
 // You need to install Javascript library
@@ -61,7 +61,7 @@ A mnemonic is a 24 word-long string that you can understand as a password to our
 
 "Xpub" is an abbreviation for "extended public key." It is essentially a generator of addresses. Only publicly visible addresses can be generated with an xpub, not private keys.
 
-Every wallet generated from Tatum holds more than 2 billion addresses. To generate a specific address, you can use an endpoint to generate the address - Bitcoin/address, where you enter your xpub and the index of the address you want to generate.
+Every wallet generated from Tatum holds more than 2 billion addresses. To generate a specific address, you can use an endpoint to generate the address - [Bitcoin/address](../docs/v3blockchain/b3A6MjkwNTc5Mjc-generate-bitcoin-deposit-address-from-extended-public-key), where you enter your xpub and the index of the address you want to generate.
 
 
 ```SDK
@@ -89,7 +89,7 @@ The response contains the address for index number 1.
 
 ## Generating a private key from the wallet
 
-To generate a private key, the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.
+To [generate a private key](../docs/v3blockchain/b3A6MjkwNTc5Mjg-generate-bitcoin-private-key), the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.
 
 ```SDK
 // Replace <<mnemonic>> with xpub you've got from step 2
@@ -106,7 +106,7 @@ curl --request POST \
   --data '{"index":1,"mnemonic":"zebra parent avocado margin ready heart space orchard police junior travel today bag action rough system novel large rain detail route spare add mail"}'
 ```
 
-When you execute a Bitcoin/wallet/priv endpoint request with the mnemonic and index entered as the request body, you can see the generated private key for index number 1.
+When you execute a [Bitcoin/wallet/priv](../docs/v3blockchain/b3A6MjkwNTc5Mjg-generate-bitcoin-private-key) endpoint request with the mnemonic and index entered as the request body, you can see the generated private key for index number 1.
 
 **Response:**
 ```json
@@ -117,7 +117,7 @@ When you execute a Bitcoin/wallet/priv endpoint request with the mnemonic and in
 
 That was super easy. You made only three calls to Tatum, and you were able to generate a wallet and receive bitcoin at the blockchain addresses. The same principle applies to other blockchains supported by Tatum, such as Ethereum, Litecoin, Bitcoin Cash, and others...
 
-To find out more about the API calls we have just used, visit our API reference.
+To find out more about the API calls we have just used, [visit our API reference](../docs/v3blockchain/YXBpOjI5MDU3OTI1-bitcoin).
 
 
 
