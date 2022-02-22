@@ -17,6 +17,8 @@ Today, you will be working with Bitcoin to generate a BIP44 compatible wallet. T
 > #### Getting started
 >[BIP 44](http://aaronjaramillo.org/bip-44-hierarchical-deterministic-wallets) is originally a Bitcoin proposal to generate multiple addresses for different blockchains from a single mnemonic seed.
 
+---
+
 ## Creating a blockchain wallet
 
 To generate a Bitcoin wallet, you need to call a request to the Bitcoin/wallet endpoint.
@@ -51,6 +53,8 @@ The response contains two fields - a mnemonic and extended public key (xpub).
 >
 >However, for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely generate wallets and work with private keys, we recommend using [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line or our complex key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 
+---
+
 ## Generating an address from the wallet
 
 A mnemonic is a 24 word-long string that you can understand as a password to our wallet. Every address and the private key can be generated from a mnemonic. It is sensitive information and should not be revealed. Otherwise, you risk losing your funds.
@@ -80,6 +84,9 @@ The response contains the address for index number 1.
   "address": "1BZWZ89vWpb8htzpBmPMwcWPxt5f6usdZN"
 }
 ```
+
+---
+
 ## Generating a private key from the wallet
 
 To generate a private key, the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.

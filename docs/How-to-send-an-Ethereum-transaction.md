@@ -16,6 +16,8 @@ In order to send Ethereum to another blockchain address, you have to provide the
 >
 >You can quickly estimate transaction fees using the Estimate fee for transaction endpoint.
 
+---
+
 ## Sending an Ethereum transaction
 
 Enough of the theory. Let's send some Ethereum using the Eth blockchain transfer endpoint. To send ERC-20 tokens, you'll also need to include the **contractAddress** of the ERC-20 token you're sending and **digits** (number of decimal points) the ERC-20 token has.
@@ -104,6 +106,8 @@ The response will contain a transaction ID that you can use to get information a
 >In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
 >
 >Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+
+---
 
 ## Getting transaction detail
 

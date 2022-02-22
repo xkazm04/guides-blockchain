@@ -8,6 +8,7 @@
 >The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
 ![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
 
+---
 
 ## How can creators keep getting paid?
 
@@ -23,6 +24,8 @@ Tatum royalty NFTs can currently be created on:
 - **Binance Smart Chain**
 - **Polygon**
 - **Harmony.ONE**
+
+---
 
 ## What is provenance data?
 
@@ -49,6 +52,8 @@ Now, import the required libraries:
 ```ImportSDK
 import { deployNFT, getNFTContractAddress, mintNFTWithUri, transferNFT, getNFTsByAddress, getNFTMetadataURI, updateCashbackForAuthorNFT, getNFTProvenanceData } from '@tatumio/tatum';
 ```
+
+---
 
 ## Creating an NFT smart contract
 
@@ -122,6 +127,9 @@ The response will contain a transaction ID, from which we can get the contract a
   "failed": false
 }
 ```
+
+---
+
 ## Getting the address of the smart contract
 
 To get the address of the smart contract, use the transaction ID in the response to the previous call with the Get NFT contract address endpoint:
@@ -143,9 +151,13 @@ The response will be the address of your NFT smart contract.
 }
 ```
 
+---
+
 ## Uploading metadata
 
 Before we mint NFTS, we have to upload the metadata (image, audio, video, etc.) that we will include in the NFT. Please check this guide to learn how to upload metadata to IPFS for free using Tatum.
+
+---
 
 ## Minting a new unique ERC-721 token
 
@@ -250,6 +262,8 @@ The response will contain a transaction ID:
 }
 ```
 
+---
+
 ## Transferring an NFT
 
 To transfer an NFT, we must enter the price of the sale from which the percentage royalties will be calculated.
@@ -332,6 +346,8 @@ The response will contain a transaction ID.
 }
 ```
 
+---
+
 ## Updating NFT cashback for authors
 
 Now, we must designate the addresses to which the cashback percentages from subsequent transactions will be sent. You can update the cashback percentage for any authors of the NFT at any time. However, the minimum fixed values (in the "fixedValues" field of the mint call) cannot be changed.
@@ -404,6 +420,8 @@ The response will contain a transaction ID.
 }
 ```
 
+---
+
 ## Getting a list of NFTs by address
 
 To find out which NFTs a specific address holds, use the following call.
@@ -434,6 +452,8 @@ The response will return a list of token IDs held by the address:
 ]
 ```
 
+---
+
 ## Getting NFT metadata
 
 To get NFT metadata for a specific token, you need:
@@ -463,6 +483,8 @@ The response will contain the location of the NFT's metadata:
 }
 ```
 
+---
+
 ## Get NFT provenance data
 
 Since we've enabled provenance data in the NFTs we've minted, now we can use the get NFT provenance data endpoint to view a record of all of the transactions of the NFT since it was minted. The required parameters are the same as with the get metadata endpoint.
@@ -491,6 +513,7 @@ The response will contain the provenance data of the NFT:
 ]
 ```
 
+---
 
 ## Well done!
 

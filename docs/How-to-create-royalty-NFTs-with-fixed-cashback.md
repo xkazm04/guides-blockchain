@@ -10,6 +10,7 @@
 >The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
 ![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
 
+---
 
 ## How can creators keep getting paid?
 
@@ -33,6 +34,8 @@ Tatum royalty NFTs can currently be created on:
 
 <!-- theme: warning -->
 >**Tatum royalty NFTs** are primarily intended for higher-value NFTs. The royalty functionality is currently incompatible with OpenSea and must be transferred using smart contract methods not currently supported within the platform. As soon as OpenSea allows this standard and method calls, our royalty NFTs will be fully compatible with the platform.
+
+---
 
 ## Import required libraries
 
@@ -103,6 +106,8 @@ The response is the transaction ID from which the created token's address can be
 }
 ```
 
+---
+
 ## Getting the address of the smart contract
 
 To get the address of the smart contract, use the transaction ID in the response to the previous call with the Get NFT contract address endpoint:
@@ -124,9 +129,13 @@ The response will contain the address of your NFT smart contract in the contract
 }
 ```
 
+---
+
 ## Uploading metadata
 
 Before we mint NFTs, we have to upload the metadata (image, audio, video, etc.) that we will include in the NFT. Please check this guide to learn how to upload metadata to IPFS for free using Tatum.
+
+---
 
 ## Minting a new unique ERC-721 token
 
@@ -205,6 +214,8 @@ The response will be a transaction ID:
   "txId": "0xc13b89f8f270e7848d2a8897582a01f1db60bb30918044d5fa3a0744b455a5a6"
 }
 ```
+
+---
 
 ## Transferring a specific ERC-721 token
 
@@ -288,6 +299,8 @@ curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/transaction/CELO/
 }
 ```
 
+---
+
 ## Getting a list of tokens that belong to the address
 
 To find out which NFTs a specific address holds, use the following call.
@@ -315,6 +328,8 @@ The response will return a list of token IDs held by the address:
   "10"
 ]
 ```
+
+---
 
 ## Obtaining metadata for a specific token
 
@@ -344,6 +359,8 @@ The response will contain the location of the NFT's metadata:
   "data": "https://my_token_data.com"
 }
 ```
+
+---
 
 ## Obtaining royalty details for a specific token
 

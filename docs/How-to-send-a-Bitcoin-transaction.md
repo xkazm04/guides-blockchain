@@ -37,6 +37,8 @@ Finally, you have to know how much bitcoin you want to send to whom. You need to
 >
 >You want to use 10 BTC from 2 addresses as input and send it to 3 recipients, each of which will receive 3 BTC. The fee is 10 BTC - 9 BTC = 1 BTC.
 
+---
+
 ## Sending a Bitcoin transaction
 
 <!-- theme: warning -->
@@ -48,10 +50,6 @@ Finally, you have to know how much bitcoin you want to send to whom. You need to
 >Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms). 
 
 Enough of the theory. Let's send some bitcoin using this API endpoint.
-
-
-
-
 
 ```SDK
 import {sendBitcoinTransaction} from '@tatumio/tatum';
@@ -151,6 +149,8 @@ The response will contain a transaction ID, from which we can get information ab
     "txId": "962e4ad3781e7036ff3af6d880744fd3f06131c32d1085254da3cfa77b0e933f"
 }
 ```
+
+---
 
 ## Getting transaction details
 To get information about the transaction, you can use the transaction ID from the response of the previous request with the Bitcoin/Get transaction endpoint.

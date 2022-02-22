@@ -12,6 +12,8 @@ Usually, the JSON metadata scheme that points to the metadata included in your N
 
 We’ll get into a couple of other small differences specific to the Mint and Transfer NFT API endpoints below, but for now, let’s get minting, shall we?
 
+---
+
 ## Minting NFTs
 
 To mint an NFT on Solana, you can use the same Mint NFT endpoint in Tatum that you would with any other blockchain. Most of the parameters are exactly the same, but the royalty information in the **metadata** section has a couple of key differences:

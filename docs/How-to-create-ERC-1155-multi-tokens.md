@@ -32,6 +32,8 @@ Please refer to the guide below and the following workshop to learn how to creat
 
 https://www.youtube.com/watch?v=YxB4oEn1C5g&feature=emb_title&ab_channel=Tatum
 
+---
+
 ## Creating a multi-token smart contract
 
 To create and deploy multi tokens using Tatum, all you need is one simple API call. This API call deploys a standard, validated multi-token smart contract to the blockchain of your choice. 
@@ -100,6 +102,8 @@ The response will contain a transaction ID from which we can obtain the smart co
 }
 ```
 
+---
+
 ## Getting the address of the contract from a blockchain transaction
 
 Use the following API call to get the address of the smart contract from the transaction ID.
@@ -124,6 +128,8 @@ The response will contain the address of the NFT smart contract you deployed in 
     "contractAddress": "0x7e8fada7108d0DBbE8C6aca50d0FFb13CC34Eb81"
 }
 ```
+
+---
 
 ## Minting new ERC-1155 tokens
 
@@ -263,6 +269,9 @@ The response will contain a transaction ID from which you can obtain the details
     "txId": "0x0b4e6281b7710e6d0b4fdbed463a265f87ab3ac41c8f3e8e75b7b56331e3e091"
 }
 ```
+
+
+---
 
 ## Transferring ERC-1155 tokens
 
@@ -404,6 +413,8 @@ The response will contain a transaction ID from which you can obtain the details
 }
 ```
 
+---
+
 ## Getting a list of tokens that belong to an address
 
 If you want to display a list of tokens that someone possesses, you can use the get multi-token account balance endpoint. 
@@ -478,6 +489,8 @@ The response will contain the balances of each token ID at each address specifie
     ]
 }
 ```
+
+---
 
 ## Obtaining metadata for a multi-token
 

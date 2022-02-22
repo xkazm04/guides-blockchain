@@ -119,6 +119,9 @@ The following parameters should be present in the API request body:
   "txId": "0xa61f21f5c33996f7e8a6d209513fb446ea345565f10e614e40a7978e3373b919"
 }
 ```
+
+---
+
 ## Getting the contract address
 
 The response to the above call is a transaction ID . Using the transaction ID, we can use the Get contract address from transaction endpoint to obtain the address of the NFT smart contract.
@@ -151,6 +154,8 @@ The required parameters to enter are:
 ```
 
 In the response, you can see a field called "contractAddress," which contains the address of the smart contract.
+
+---
 
 ## Minting a new, unique ERC-721 token 
 
@@ -253,6 +258,8 @@ The API request body to mint a new NFT should contain the following values. The 
 
 The response will contain a transaction ID which can be fetched using the get NFT transaction API endpoint to see details about the transaction.
 
+---
+
 ## Transferring a specific ERC-721 token
 
 To transfer tokens from the address where they were issued to another blockchain address, you can use the Transfer NFT token endpoint. You need the private key of the address where the tokens are located (the contract address from the first call where the initial supply is distributed).
@@ -324,6 +331,8 @@ The API request body should contain the following parameters. The **provenanceDa
 
 Again, the response contains a transaction ID from which we can get details of the transaction using the get NFT transaction endpoint.
 
+---
+
 ## Getting a list of tokens that belong to an address
 
 If you want to display a list of tokens that someone possesses, you can use the Get NFT Account balance endpoint.
@@ -348,6 +357,7 @@ curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/balance/CELO/0x18
 
 The response contains the token IDs of the NFTs at the specified address.
 
+---
 
 ## Obtaining metadata for a specific token
 

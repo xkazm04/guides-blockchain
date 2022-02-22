@@ -29,6 +29,8 @@ It is a lot to know. For developers who only need the basic features of ERC-20 t
 
 >Feel free to check out the source code to our ERC-20 smart contract on [GitHub](https://github.com/tatumio/tatum-middleware/blob/master/src/contracts/token.sol).
 
+---
+
 ## Deploying an ERC-20 Smart Contract
 
 To create and deploy an ERC-20 token using Tatum, all you need is one simple API call. This API call deploys a standard, validated ERC-20 smart contract to the blockchain designated in the chain field. The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
@@ -121,6 +123,8 @@ The response will contain a transaction ID, from which you can obtain the addres
 }
 ```
 
+---
+
 ## Getting the address of the smart contract
 
 
@@ -142,6 +146,8 @@ The response will contain the address of the smart contract you've deployed.
   "contractAddress": "0x316e52b83c66E8FB3936bdc2C8Ed8437441774cE"
 }
 ```
+
+---
 
 ## Transferring ERC-20 tokens to another blockchain address
 
