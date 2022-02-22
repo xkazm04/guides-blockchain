@@ -14,13 +14,13 @@ In order to send Ethereum to another blockchain address, you have to provide the
 <!-- theme: info -->
 > **Estimating transaction fees**
 >
->You can quickly estimate transaction fees using the Estimate fee for transaction endpoint.
+>You can quickly estimate transaction fees using the [Estimate fee for transaction endpoint](../docs/smart/b3A6NDAxOTg5MTU).
 
 ---
 
 ## Sending an Ethereum transaction
 
-Enough of the theory. Let's send some Ethereum using the Eth blockchain transfer endpoint. To send ERC-20 tokens, you'll also need to include the **contractAddress** of the ERC-20 token you're sending and **digits** (number of decimal points) the ERC-20 token has.
+Enough of the theory. Let's send some Ethereum using the [Eth blockchain transfer](../docs/v3blockchain/b3A6MjkwNDQ2NDM-send-ethereum-erc-20-from-account-to-account) endpoint. To send ERC-20 tokens, you'll also need to include the **contractAddress** of the ERC-20 token you're sending and **digits** (number of decimal points) the ERC-20 token has.
 
 
 ```SDK
@@ -111,7 +111,7 @@ The response will contain a transaction ID that you can use to get information a
 
 ## Getting transaction detail
 
-To get the details of the transaction, use the transaction ID from the response of the previous call with the Ethereum/Get transaction endpoint.
+To get the details of the transaction, use the transaction ID from the response of the previous call with the [Ethereum/Get transaction endpoint](../docs/v3blockchain/b3A6MjkwNDQ2NDA-get-ethereum-transaction).
 
 ```SDK
 import {ethGetTransaction } from '@tatumio/tatum';
@@ -147,7 +147,7 @@ Response:
 }
 ```
 
-And that's it. A piece of cake. Now you know how to send Eth and ERC-20 tokens on Ethereum and get the details of the transaction. To find out more about the endpoints you used today, read our API Reference.
+And that's it. A piece of cake. Now you know how to send Eth and ERC-20 tokens on Ethereum and get the details of the transaction. To find out more about the endpoints you used today, read our [API Reference](/docs/v3blockchain/YXBpOjI5MDIxMjIx-ethereum).
 
 
 

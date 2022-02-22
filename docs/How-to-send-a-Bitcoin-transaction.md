@@ -49,7 +49,7 @@ Finally, you have to know how much bitcoin you want to send to whom. You need to
 >
 >Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms). 
 
-Enough of the theory. Let's send some bitcoin using this API endpoint.
+Enough of the theory. Let's send some bitcoin [using this API endpoint](../docs/v3blockchain/b3A6MjkwNTc5Mzc-send-bitcoin-to-blockchain-addresses).
 
 ```SDK
 import {sendBitcoinTransaction} from '@tatumio/tatum';
@@ -153,7 +153,7 @@ The response will contain a transaction ID, from which we can get information ab
 ---
 
 ## Getting transaction details
-To get information about the transaction, you can use the transaction ID from the response of the previous request with the Bitcoin/Get transaction endpoint.
+To get information about the transaction, you can use the transaction ID from the response of the previous request with the [Bitcoin/Get transaction endpoint](../docs/v3blockchain/b3A6MjkwNTc5MzI-get-transaction-by-hash).
 
 ```SDK
 import {btcGetTransaction} from '@tatumio/tatum';
@@ -234,7 +234,7 @@ The response will contain the details of the transaction you have performed.
 }
 ```
 
-And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our API Reference.
+And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our [API Reference](../docs/v3blockchain/YXBpOjI5MDU3OTI1-bitcoin).
 
 
 
