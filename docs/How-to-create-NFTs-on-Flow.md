@@ -17,18 +17,15 @@ Creating a new NFT, or "smart contract" on the Flow blockchain, is not easy at a
 It's a lot to know, and for developers who only need the basic features of NFT tokens, it would take weeks to figure it all out. Not to mention, on Flow, once you've coded your own smart contract, you need it to be audited and approved by the Flow team. While this service is very useful for ensuring that your smart contract is secure, it can takes weeks or months to get approval. We have already gotten our NFT smart contract audited and approved on Flow, and you can register a section of it for your app or marketplace to mint as many NFTs as you would like.
 
 
- <div class="toolbar-tip">
-
+<div class="toolbar-tip">
 Tatum has a prebuilt FLOW NFT contract ready for deployment. The source code is available on GitHub.
 </div>
-
- <div class="toolbar-warning">
-
+<div class="toolbar-warning">
 In this guide, we are signing blockchain transactions using a private key via API. This is fine for testing and demo purposes, but for production use, it is not a secure way of signing transactions. 
 
 Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 </div>
----
+
 
 ## Generate a Flow wallet, address, and private key
 

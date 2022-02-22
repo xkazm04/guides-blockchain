@@ -3,7 +3,7 @@
 *Create flexible multi tokens with both fungible and non-fungible properties*
 
 ---
-<div class="tabbed-code-blocks">
+<div class="toolbar-note">
 The [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) is a standardized smart contract with a predefined set of features. These tokens have properties in common with both fungible and non-fungible tokens. Any single contract may include any combination of fungible, non-fungible, or semi-fungible tokens.
 </div>
 
