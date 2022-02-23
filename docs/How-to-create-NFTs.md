@@ -61,7 +61,7 @@ In this guide, we are signing transactions with a private key via API. This is f
 Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 
 
-The following API call will [deploy an NFT smart contract](https://developer.tatum.io/rest/smart-contracts#/b3A6MzA3NjA5MDg-deploy-nft-smart-contract) on Celo:
+The following API call will [deploy an NFT smart contract](https://developer.tatum.io/rest/smart-contracts/deploy-nft-smart-contract) on Celo:
 
 <div class='tabbed-code-blocks'>
 ```SDK
