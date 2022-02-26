@@ -6,8 +6,9 @@
 
 <div class="toolbar-note">
 >The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
-![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
 </div>
+
+![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
 
 ## How can creators keep getting paid?
 
@@ -22,6 +23,7 @@ Tatum royalty NFTs can currently be created on:
 - **Celo**
 - **Binance Smart Chain**
 - **Polygon**
+- **Klaytn**
 - **Harmony.ONE**
 
 ---
@@ -41,7 +43,6 @@ For information on creating NFTs that payout cashback as a fixed value without p
 
 <div class="toolbar-warning">
 **Tatum royalty NFTs** are primarily intended for higher-value NFTs. The royalty functionality is currently incompatible with OpenSea and must be transferred using smart contract methods not currently supported within the platform.
-
 As soon as OpenSea allows this standard and method calls, our royalty NFTs will be fully compatible with the platform.
 </div>
 
