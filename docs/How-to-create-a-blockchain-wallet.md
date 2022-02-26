@@ -2,8 +2,6 @@
 
 *Generating a Bitcoin wallet in three API calls*
 
----
-
 
 #### Getting started
 
