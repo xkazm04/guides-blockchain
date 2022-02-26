@@ -19,6 +19,7 @@ However, there are still several potential obstacles to consider:
 To make things as simple and straightforward as possible, we’ve created a feature called **NFT Express**. Here’s how it works:
 - You can mint as many NFTs as you want on 5 blockchains using Tatum’s smart contracts. 
 - Your gas fees are deducted from the monthly credit allowance of your paid plan.
+
 You don’t need to deploy your own smart contracts, worry about holding crypto, work with private keys, or keep addresses topped up with crypto to pay for gas fees on each blockchain. With NFT Express, you can just mint NFTs with one simple API call, on the following blockchains:
 - **Ethereum** 
 - **Polygon** 

@@ -21,6 +21,7 @@ It is a lot to know. For developers who only need the basic features of ERC-20 t
 - **Celo**
 - **Harmony.ONE**
 - **Flow**
+- **Klaytn**
 - **Tron**
 - **Binance Smart Chain**
 
@@ -51,8 +52,7 @@ import {prepareDeployErc20SignedTransaction} from '@tatumio/tatum'
  * @param body content of the transaction to broadcast
  * @param provider url of the Ethereum Server to connect to. If not set, default public server will be used.
  * @returns transaction data to be broadcast to blockchain.
- */
- 
+*/ 
 const body = {
   chain: "ETH",
   symbol: "ERC_SYMBOL",
