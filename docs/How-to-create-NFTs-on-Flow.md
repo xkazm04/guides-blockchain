@@ -9,11 +9,13 @@ NFTs have been making waves in the digital world recently and for good reason. T
 From digital collectibles to in-game assets to one-of-a-kind releases of digital media, the possibilities are endless. Everyone wants to start implementing NFTs into their platforms, but they're running into a few obstacles.
 
 Creating a new NFT, or "smart contract" on the Flow blockchain, is not easy at all. As a developer, you have to know a lot of things:
-- Cadence - a new programming language for writing smart contracts
-- How to use a compiler for Cadence
-- How to develop using an IDE
-- How to deploy the compiled smart contract
-- Undergo a review process from DapperLabs
+
+- **Cadence** - a new programming language for writing smart contracts
+- How to use a **compiler** for Cadence
+- How to develop using an **IDE**
+- How to deploy the compiled **smart contract**
+- Undergo a review process from **DapperLabs**
+
 It's a lot to know, and for developers who only need the basic features of NFT tokens, it would take weeks to figure it all out. Not to mention, on Flow, once you've coded your own smart contract, you need it to be audited and approved by the Flow team. While this service is very useful for ensuring that your smart contract is secure, it can takes weeks or months to get approval. We have already gotten our NFT smart contract audited and approved on Flow, and you can register a section of it for your app or marketplace to mint as many NFTs as you would like.
 
 
@@ -22,7 +24,6 @@ Tatum has a prebuilt FLOW NFT contract ready for deployment. The source code is 
 </div>
 <div class="toolbar-warning">
 In this guide, we are signing blockchain transactions using a private key via API. This is fine for testing and demo purposes, but for production use, it is not a secure way of signing transactions. 
-
 Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 </div>
 
@@ -93,8 +94,7 @@ In the case of Flow, it registers a section of a pre-deployed smart contract for
 
 **The signing address in the request is the address of the minter. It will only be possible to mint new tokens from this address.**
 
- <div class="toolbar-tip">
-
+<div class="toolbar-tip">
 A Flow address can be used only once to deploy a new NFT contract. If you want to register multiple sections of our smart contract for use, you need to use multiple addresses as deployer/minter addresses.
 </div>
 <div class='tabbed-code-blocks'>
