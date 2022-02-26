@@ -15,22 +15,18 @@ Do you know that many developers do not know how to handle private keys securely
 
 Today, you will be working with Bitcoin to generate a BIP44 compatible wallet. The most important feature of this type of wallet is that you only need to store one secret mnemonic for more than 2 billion private keys and addresses.
 
-
-> #### Getting started
 <div class="toolbar-note">
->[BIP 44](http://aaronjaramillo.org/bip-44-hierarchical-deterministic-wallets) is originally a Bitcoin proposal to generate multiple addresses for different blockchains from a single mnemonic seed.
+[BIP 44](http://aaronjaramillo.org/bip-44-hierarchical-deterministic-wallets) is originally a Bitcoin proposal to generate multiple addresses for different blockchains from a single mnemonic seed.
 </div>
----
 
 ## Creating a blockchain wallet
 
 To generate a Bitcoin wallet, you need to call a request to the [Bitcoin/wallet](https://developer.tatum.io/rest/blockchain/generate-bitcoin-wallet) endpoint.
 
+<div class='tabbed-code-blocks'>
 ```SDK
-// You need to install Javascript library
 // https://github.com/tatumio/tatum-js
 const {generateWallet, Currency} = require("@tatumio/tatum");
-
 const btcWallet = async generateWallet(Currency.BTC, false);
 console.log(btcWallet);
 ```
@@ -39,6 +35,7 @@ curl --request GET \
   --url 'https://api-eu1.tatum.io/v3/bitcoin/wallet' \
   --header 'x-api-key: YOUR_API_KEY'
 ```
+</div>
 
 The response contains two fields - a mnemonic and extended public key (xpub).
 
@@ -68,7 +65,7 @@ A mnemonic is a 24 word-long string that you can understand as a password to our
 
 Every wallet generated from Tatum holds more than 2 billion addresses. To generate a specific address, you can use an endpoint to generate the address - [Bitcoin/address](https://developer.tatum.io/rest/blockchain/generate-bitcoin-deposit-address-from-extended-public-key), where you enter your xpub and the index of the address you want to generate.
 
-
+<div class='tabbed-code-blocks'>
 ```SDK
 // Replace <<xpub>> with xpub you've got from step 2
 const {generateAddressFromXPub, Currency} = require("@tatumio/tatum");
@@ -81,6 +78,7 @@ curl --request GET \
   --url https://api-eu1.tatum.io/v3/bitcoin/address/xpub6FPGLmppWEemTJ56aq6wcSkjeZN4iEw1CBvQzkusgbJpqyoiPPJASLpbduzKrNF54i348moHyoVGkyz1H2TC3iEPLfacjPFEfTENkD6YzzZ/1 \
   --header 'x-api-key: YOUR_API_KEY'
 ```
+</div>
 The response contains the address for index number 1.
 
 **Response:**
@@ -96,6 +94,7 @@ The response contains the address for index number 1.
 
 To [generate a private key](https://developer.tatum.io/rest/blockchain/generate-bitcoin-private-key), the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 // Replace <<mnemonic>> with xpub you've got from step 2
 const {generatePrivateKeyFromMnemonic, Currency} = require("@tatumio/tatum");
@@ -110,6 +109,7 @@ curl --request POST \
   --header 'x-api-key: YOUR_API_KEY' \
   --data '{"index":1,"mnemonic":"zebra parent avocado margin ready heart space orchard police junior travel today bag action rough system novel large rain detail route spare add mail"}'
 ```
+</div>
 
 When you execute a https://api-eu1.tatum.io/v3/bitcoin/wallet/priv endpoint request with the mnemonic and index entered as the request body, you can see the generated private key for index number 1.
 
