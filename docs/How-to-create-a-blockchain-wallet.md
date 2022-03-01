@@ -67,7 +67,6 @@ Every wallet generated from Tatum holds more than 2 billion addresses. To genera
 ```SDK
 // Replace <<xpub>> with xpub you've got from step 2
 const {generateAddressFromXPub, Currency} = require("@tatumio/tatum");
-
 const btcAddress = generateAddressFromXPub(Currency.BTC, false, "<<xpub>>", 1);
 console.log(btcAddress);
 ```
@@ -96,7 +95,6 @@ To [generate a private key](https://docs.tatum.io/rest/blockchain/generate-bitco
 ```SDK
 // Replace <<mnemonic>> with xpub you've got from step 2
 const {generatePrivateKeyFromMnemonic, Currency} = require("@tatumio/tatum");
-
 const btcPrivateKey = await generatePrivateKeyFromMnemonic(Currency.BTC, false, "<<mnemonic>>", 1);
 console.log(btcPrivateKey);
 ```

@@ -12,7 +12,6 @@ To send a Bitcoin transaction, you have two options with Tatum:
 <div class="toolbar-note">
 **More about Bitcoin**
 The Bitcoin blockchain is not account-based but transaction-based. You operate with a list of previously received transactions and the assets within them. This means that you can use multiple transactions in one transaction as a source of your assets, not just one specific address.
-
 To find out more about how Bitcoin works, check out [this article](https://www.investopedia.com/terms/u/utxo.asp).
 </div>
 

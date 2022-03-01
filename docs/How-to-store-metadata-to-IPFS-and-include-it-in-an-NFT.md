@@ -27,8 +27,7 @@ import {ipfsGet, ipfsGet} from '@tatumio/tatum';
  * Gets data from the IPFS
  * @param id - IPFS CID of the file
  */
-  const ipfsId = await ipfsGet('QmXJJ6UF5WkF4WTJvsdhiA1etGwBLfpva7Vr9AudGMe3pj');
- 
+const ipfsId = await ipfsGet('QmXJJ6UF5WkF4WTJvsdhiA1etGwBLfpva7Vr9AudGMe3pj');
 /**
  * Upload file to the IPFS storage.
  * @param file - data buffer of the file. Content Type: multipart/form-data
