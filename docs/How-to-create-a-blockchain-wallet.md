@@ -19,7 +19,7 @@ Today, you will be working with Bitcoin to generate a BIP44 compatible wallet. T
 
 ## Creating a blockchain wallet
 
-To generate a Bitcoin wallet, you need to call a request to the [Bitcoin/wallet](https://developer.tatum.io/rest/blockchain/generate-bitcoin-wallet) endpoint.
+To generate a Bitcoin wallet, you need to call a request to the [Bitcoin/wallet](https://docs.tatum.io/rest/blockchain/generate-bitcoin-wallet) endpoint.
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -61,7 +61,7 @@ A mnemonic is a 24 word-long string that you can understand as a password to our
 
 "Xpub" is an abbreviation for "extended public key." It is essentially a generator of addresses. Only publicly visible addresses can be generated with an xpub, not private keys.
 
-Every wallet generated from Tatum holds more than 2 billion addresses. To generate a specific address, you can use an endpoint to generate the address - [Bitcoin/address](https://developer.tatum.io/rest/blockchain/generate-bitcoin-deposit-address-from-extended-public-key), where you enter your xpub and the index of the address you want to generate.
+Every wallet generated from Tatum holds more than 2 billion addresses. To generate a specific address, you can use an endpoint to generate the address - [Bitcoin/address](https://docs.tatum.io/rest/blockchain/generate-bitcoin-deposit-address-from-extended-public-key), where you enter your xpub and the index of the address you want to generate.
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -90,7 +90,7 @@ The response contains the address for index number 1.
 
 ## Generating a private key from the wallet
 
-To [generate a private key](https://developer.tatum.io/rest/blockchain/generate-bitcoin-private-key), the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.
+To [generate a private key](https://docs.tatum.io/rest/blockchain/generate-bitcoin-private-key), the same mechanism is used. The only difference is that in this case, private keys are from the wallet's mnemonic, not the xpub.
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -120,5 +120,5 @@ When you execute a https://api-eu1.tatum.io/v3/bitcoin/wallet/priv endpoint requ
 
 That was super easy. You made only three calls to Tatum, and you were able to generate a wallet and receive bitcoin at the blockchain addresses. The same principle applies to other blockchains supported by Tatum, such as Ethereum, Litecoin, Bitcoin Cash, and others...
 
-To find out more about the API calls we have just used, [visit our API reference](https://developer.tatum.io/rest/blockchain).
+To find out more about the API calls we have just used, [visit our API reference](https://docs.tatum.io/rest/blockchain).
 

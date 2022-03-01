@@ -18,7 +18,7 @@ Making NFTs with Tatum is just a matter of a few simple API calls. One very impo
 
 We’ve built native IPFS integration into our platform, so you just need a couple of API calls to store your metadata.
 
-1. First, upload your metadata (image, video, audio file, etc.) to IPFS using the [following API call](https://developer.tatum.io/rest/storage/store-data-to-ipfs):
+1. First, upload your metadata (image, video, audio file, etc.) to IPFS using the [following API call](https://docs.tatum.io/rest/storage/store-data-to-ipfs):
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -68,9 +68,9 @@ curl --request POST \
 }
 ```
 
-5. Now, upload your saved JSON metadata scheme to IPFS using the [same API call as above](https://developer.tatum.io/rest/storage/store-data-to-ipfs).
+5. Now, upload your saved JSON metadata scheme to IPFS using the [same API call as above](https://docs.tatum.io/rest/storage/store-data-to-ipfs).
 6. Again, a successful upload will return an IPFS hash in the response.
-7. Include this hash in the “URL” field of the [Mint NFT API call](https://developer.tatum.io/rest/smart-contracts/mint-nft) when you mint a new NFT.
+7. Include this hash in the “URL” field of the [Mint NFT API call](https://docs.tatum.io/rest/smart-contracts/mint-nft) when you mint a new NFT.
 
 <div class='tabbed-code-blocks'>
 ```SDK

@@ -12,12 +12,12 @@ In order to send Ethereum to another blockchain address, you have to provide the
 
 <div class="toolbar-tip">
 **Estimating transaction fees**
-You can quickly estimate transaction fees using the [Estimate fee for transaction endpoint](https://developer.tatum.io/rest/blockchain/estimate-ethereum-transaction-fees).
+You can quickly estimate transaction fees using the [Estimate fee for transaction endpoint](https://docs.tatum.io/rest/blockchain/estimate-ethereum-transaction-fees).
 </div>
 
 ## Sending an Ethereum transaction
 
-Enough of the theory. Let's send some Ethereum using the [Eth blockchain transfer](https://developer.tatum.io/rest/blockchain/send-ethereum-erc-20-from-account-to-account) endpoint. To send ERC-20 tokens, you'll also need to include the `contractAddress` of the ERC-20 token you're sending and `digits` (number of decimal points) the ERC-20 token has.
+Enough of the theory. Let's send some Ethereum using the [Eth blockchain transfer](https://docs.tatum.io/rest/blockchain/send-ethereum-erc-20-from-account-to-account) endpoint. To send ERC-20 tokens, you'll also need to include the `contractAddress` of the ERC-20 token you're sending and `digits` (number of decimal points) the ERC-20 token has.
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -105,7 +105,7 @@ Your private keys and mnemonics should never leave your security perimeter. To c
 
 ## Getting transaction detail
 
-To get the details of the transaction, use the transaction ID from the response of the previous call with the [Ethereum/Get transaction endpoint](https://developer.tatum.io/rest/blockchain/get-ethereum-transaction).
+To get the details of the transaction, use the transaction ID from the response of the previous call with the [Ethereum/Get transaction endpoint](https://docs.tatum.io/rest/blockchain/get-ethereum-transaction).
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -144,6 +144,6 @@ Response:
 }
 ```
 
-And that's it. A piece of cake. Now you know how to send Eth and ERC-20 tokens on Ethereum and get the details of the transaction. To find out more about the endpoints you used today, read our [API Reference](https://developer.tatum.io/rest/blockchain/ethereum).
+And that's it. A piece of cake. Now you know how to send Eth and ERC-20 tokens on Ethereum and get the details of the transaction. To find out more about the endpoints you used today, read our [API Reference](https://docs.tatum.io/rest/blockchain/ethereum).
 
 

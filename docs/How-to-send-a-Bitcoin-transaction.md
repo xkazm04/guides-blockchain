@@ -43,7 +43,7 @@ In this guide, we are signing transactions with a private key via API. This is f
 Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms). 
 </div>
 
-Enough of the theory. Let's send some bitcoin [using this API endpoint](https://developer.tatum.io/rest/blockchain/send-bitcoin-to-blockchain-addresses).
+Enough of the theory. Let's send some bitcoin [using this API endpoint](https://docs.tatum.io/rest/blockchain/send-bitcoin-to-blockchain-addresses).
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -147,7 +147,7 @@ The response will contain a transaction ID, from which we can get information ab
 ---
 
 ## Getting transaction details
-To get information about the transaction, you can use the transaction ID from the response of the previous request with the [Bitcoin/Get transaction endpoint](https://developer.tatum.io/rest/blockchain/get-transaction-by-hash).
+To get information about the transaction, you can use the transaction ID from the response of the previous request with the [Bitcoin/Get transaction endpoint](https://docs.tatum.io/rest/blockchain/get-transaction-by-hash).
 
 <div class='tabbed-code-blocks'>
 ```SDK
@@ -231,7 +231,7 @@ The response will contain the details of the transaction you have performed.
 }
 ```
 
-And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our [API Reference](https://developer.tatum.io/rest/blockchain/supported-services).
+And that's it. Super easy. Now you know how to create your wallet, receive assets, and send them somewhere else. To find out more about the endpoints you used today, read our [API Reference](https://docs.tatum.io/rest/blockchain/supported-services).
 
 
 

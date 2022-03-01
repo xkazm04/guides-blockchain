@@ -33,7 +33,7 @@ Feel free to check out the source code to our ERC-20 smart contract on [GitHub](
 
 ## Deploying an ERC-20 Smart Contract
 
-[To create and deploy an ERC-20 token](https://developer.tatum.io/rest/smart-contracts/deploy-erc-20-smart-contract) using Tatum, all you need is one simple API call. This API call deploys a standard, validated ERC-20 smart contract to the blockchain designated in the chain field. The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
+[To create and deploy an ERC-20 token](https://docs.tatum.io/rest/smart-contracts/deploy-erc-20-smart-contract) using Tatum, all you need is one simple API call. This API call deploys a standard, validated ERC-20 smart contract to the blockchain designated in the chain field. The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
 
 
 
@@ -130,7 +130,7 @@ The response will contain a transaction ID, from which you can obtain the addres
 ## Getting the address of the smart contract
 
 
-To [obtain the address of the smart contract](https://developer.tatum.io/rest/smart-contracts/get-erc-20-transactions-by-address) you've deployed, use the following API request:
+To [obtain the address of the smart contract](https://docs.tatum.io/rest/smart-contracts/get-erc-20-transactions-by-address) you've deployed, use the following API request:
 
 ```SDK
 const contractAddress = await getNFTContractAddress(Currency.ETH, '0x75808516abfb2fa4e44fd2fc85863d15e11bdc3f90769962e3f34d7a17df4f0f');
@@ -153,7 +153,7 @@ The response will contain the address of the smart contract you've deployed.
 
 ## Transferring ERC-20 tokens to another blockchain address
 
-To transfer the tokens from the address where they were issued to another blockchain address, you can use the [Transfer ERC20 token](https://developer.tatum.io/rest/smart-contracts/transfer-erc-20-token) endpoint from the Fungible Token section of the API documentation. You need the private key of the address where tokens are located (address from the first call where the initial supply is distributed) or the signature ID of the signed transaction from Tatum KMS.
+To transfer the tokens from the address where they were issued to another blockchain address, you can use the [Transfer ERC20 token](https://docs.tatum.io/rest/smart-contracts/transfer-erc-20-token) endpoint from the Fungible Token section of the API documentation. You need the private key of the address where tokens are located (address from the first call where the initial supply is distributed) or the signature ID of the signed transaction from Tatum KMS.
 
 <div class="tabbed-code-blocks">
 ```SDK
@@ -229,6 +229,6 @@ The response will contain the transaction's ID from which you can get the detail
 
 That wasn't too bad at all, right? With just three calls to Tatum, you were able to deploy your own token and transfer it. You don't have to install anything, learn Solidity, etc.
 
-To find out more about the API calls we have just used, visit our [API Reference](https://developer.tatum.io/rest/smart-contracts/fungible-token).
+To find out more about the API calls we have just used, visit our [API Reference](https://docs.tatum.io/rest/smart-contracts/fungible-token).
 
 

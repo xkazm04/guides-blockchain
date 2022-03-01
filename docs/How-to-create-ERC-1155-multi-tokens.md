@@ -50,7 +50,7 @@ import {Currency, deployMultiToken} from '@tatumio/tatum';
 /**
  * Deploy MultiTokens (1155) contract.
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://developer.tatum.io/rest/smart-contracts#/deploy-multi-token-smart-contract
+ * @param body - body of the request - https://docs.tatum.io/rest/smart-contracts#/deploy-multi-token-smart-contract
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
@@ -213,7 +213,7 @@ import {Currency, mintMultiTokenBatch} from '@tatumio/tatum';
 /**
  * Mint batch of MultiTokens (1155) with Tatum KMS.
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://developer.tatum.io/rest/smart-contracts#/b3A6MzA4NDAzMzU-mint-multi-token
+ * @param body - body of the request - https://docs.tatum.io/rest/smart-contracts#/b3A6MzA4NDAzMzU-mint-multi-token
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
