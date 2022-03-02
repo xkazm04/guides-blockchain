@@ -27,10 +27,8 @@ It's a lot to know, and for developers who only need the basic features of ERC-7
 This is why we've made prebuilt ERC-721 smart contracts that are ready to deploy with one API. You can easily create NFTs without learning Solidity and can deploy them on your blockchain of choice.
 
 <div class="toolbar-tip">
-
 Check out the source code to our **ERC-721** smart contract on [GitHub](https://github.com/tatumio/tatum-middleware/blob/master/src/contracts/erc721/ERC721Full.sol).
 </div>
-![ntf_-12.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/NyL8ch1C7Hk)
 
 In this guide, you will learn how to deploy an ERC-721 smart contract, and to mint, transfer, and burn tokens. Please also check out our workshop on working with NFTs for a live demo of the workflow in Postman:
 
