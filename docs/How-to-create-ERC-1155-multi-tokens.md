@@ -28,7 +28,7 @@ It's a lot to know, and for developers who only need the basic features of ERC-1
 
 Please refer to the guide below and the following workshop to learn how to create and work with ERC-1155 multi-tokens:
 
-https://www.youtube.com/watch?v=YxB4oEn1C5g&feature=emb_title&ab_channel=Tatum
+<div youtube-url="https://www.youtube.com/watch?v=YxB4oEn1C5g&feature=emb_title&ab_channel=Tatum"></div>
 
 ---
 
