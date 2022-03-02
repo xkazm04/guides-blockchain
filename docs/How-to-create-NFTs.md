@@ -32,7 +32,7 @@ Check out the source code to our **ERC-721** smart contract on [GitHub](https://
 
 In this guide, you will learn how to deploy an ERC-721 smart contract, and to mint, transfer, and burn tokens. Please also check out our workshop on working with NFTs for a live demo of the workflow in Postman:
 
-https://www.youtube.com/watch?time_continue=3&v=i86Nh-Srfsk&feature=emb_title&ab_channel=Tatum
+<div youtube-url="https://www.youtube.com/watch?time_continue=3&v=i86Nh-Srfsk&feature=emb_title&ab_channel=Tatum"></div>
 
 You can find all of the API calls we will be using in our [API documentation](https://docs.tatum.io/rest/smart-contracts/non-fungible-token-nft) or download our Postman collection for this guide [here](https://www.postman.com/blockchainnow/workspace/tatum-io/folder/10167180-22217e73-44f0-414d-b865-2098a72c2050?ctx=documentation).
 
@@ -406,15 +406,17 @@ Also, be sure to watch through our workshops on How to create NFT marketplaces:
 
 **Frontend and user journey:**
 
-https://www.youtube.com/watch?v=5OpFvUoP5Qc&feature=emb_title&ab_channel=Tatum
+<div youtube-url="https://www.youtube.com/watch?v=5OpFvUoP5Qc&feature=emb_title&ab_channel=Tatum"></div>
+
 
 **Creating NFTs, working with metadata:**
 
-https://www.youtube.com/watch?v=-eysAYS7l3o&feature=emb_title&ab_channel=Tatum
+<div youtube-url="https://www.youtube.com/watch?v=-eysAYS7l3o&feature=emb_title&ab_channel=Tatum"></div>
 
 **Working with ERC-1155 multi-tokens:**
 
-https://www.youtube.com/watch?v=YxB4oEn1C5g&feature=emb_title
+<div youtube-url="https://www.youtube.com/watch?v=YxB4oEn1C5g&feature=emb_title"></div>
+
 
 
 
