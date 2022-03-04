@@ -107,7 +107,7 @@ curl --request POST \
 ```
 </div>
 
-When you execute a https://api-eu1.tatum.io/v3/bitcoin/wallet/priv endpoint request with the mnemonic and index entered as the request body, you can see the generated private key for index number 1.
+When you execute a /v3/bitcoin/wallet/priv endpoint request with the mnemonic and index entered as the request body, you can see the generated private key for index number 1.
 
 **Response:**
 ```json
