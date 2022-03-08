@@ -4,11 +4,11 @@
 
 ---
 
-<!-- theme: info -->
+<div class="toolbar-note">
 >The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
-![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
+</div>
 
----
+![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
 
 ## How can creators keep getting paid?
 
@@ -23,6 +23,7 @@ Tatum royalty NFTs can currently be created on:
 - **Celo**
 - **Binance Smart Chain**
 - **Polygon**
+- **Klaytn**
 - **Harmony.ONE**
 
 ---
@@ -31,17 +32,19 @@ Tatum royalty NFTs can currently be created on:
 
 While NFTs exist on the blockchain and their authenticity can be verified, there have still been attempts at forging high-value NFTs. To ensure the authenticity of NFTs, we have created NFT smart contracts that record metadata about each transaction every time the token is transferred. The token's entire transaction history is included in the token itself and its authenticity can be verified quickly and easily.
 
-<!-- theme: info -->
->**Tatum royalty NFTs** are ERC-721 tokens with specialized smart contracts that pay creators cashback with each subsequent transaction. They can either pay a fixed amount of cashback or cashback percentages. 
->
->In this guide, we will learn how to use **NFTs that payout cashback as a percentage of each sale and record provenance data with each transaction.**
->
->For information on creating NFTs that payout cashback as a fixed value without provenance data, please see this guide.
+<div class="toolbar-note">
+**Tatum royalty NFTs** are ERC-721 tokens with specialized smart contracts that pay creators cashback with each subsequent transaction. They can either pay a fixed amount of cashback or cashback percentages. 
+</div>
 
-<!-- theme: warning -->
->**Tatum royalty NFTs** are primarily intended for higher-value NFTs. The royalty functionality is currently incompatible with OpenSea and must be transferred using smart contract methods not currently supported within the platform.
->
->As soon as OpenSea allows this standard and method calls, our royalty NFTs will be fully compatible with the platform.
+
+In this guide, we will learn how to use **NFTs that payout cashback as a percentage of each sale and record provenance data with each transaction.**
+
+For information on creating NFTs that payout cashback as a fixed value without provenance data, please see this guide.
+
+<div class="toolbar-warning">
+**Tatum royalty NFTs** are primarily intended for higher-value NFTs. The royalty functionality is currently incompatible with OpenSea and must be transferred using smart contract methods not currently supported within the platform.
+As soon as OpenSea allows this standard and method calls, our royalty NFTs will be fully compatible with the platform.
+</div>
 
 ## Import required libraries
 
@@ -59,11 +62,13 @@ import { deployNFT, getNFTContractAddress, mintNFTWithUri, transferNFT, getNFTsB
 
 Normally, to create an NFT you'd need to learn Solidity and code your own smart contract. To speed things up, we've created prebuilt and validated smart contracts for you. You can instantly deploy them with just a few lines of code.
 
-<!-- theme: warning -->
->In this guide, we are signing transactions using a private key via API. This is fine for testing and demo purposes, but for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+<div class="toolbar-warning">
+In this guide, we are signing transactions using a private key via API. This is fine for testing and demo purposes, but for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+</div>
 
 Use the following endpoint to deploy an NFT on Ethereum. 
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await deployNFT(false, {
     name: 'MY_NFT',
@@ -112,6 +117,7 @@ curl --request POST \
   }
 }
 ```
+</div>
 
 The required parameters are:
 - **name** - the name of the NFT
@@ -134,6 +140,7 @@ The response will contain a transaction ID, from which we can get the contract a
 
 To get the address of the smart contract, use the transaction ID in the response to the previous call with the Get NFT contract address endpoint:
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const contractAddress = await getNFTContractAddress(Currency.ETH, '0x7060694f5ce1f
 ```
@@ -142,6 +149,7 @@ curl --request GET \
   --url https://api-eu1.tatum.io/v3/blockchain/sc/address/ETH/0x7060694f5ce1feb5a255d06fdcf6e4f7a3507492 \
   --header 'x-api-key: REPLACE_KEY_VALUE'
 ```
+</div>
 
 The response will be the address of your NFT smart contract.
 
@@ -164,6 +172,7 @@ Before we mint NFTS, we have to upload the metadata (image, audio, video, etc.) 
 Now that we have the address of our smart contract and have uploaded our metadata, we can mint NFTs.
 Use the following endpoint to mint a new NFT:
 
+<div>
 ```SDK
 const transactionHash = await mintNFTWithUri(false, {
     to: '0x0ff64c166a462b31ed657c9d88c5ac4fef6b88b6',
@@ -240,6 +249,7 @@ curl --request POST \
   }
 }
 ```
+</div>
 
 The required fields for the API endpoint body are:
 - **to** - he recipient's address to which the NFT will be minted
@@ -262,12 +272,12 @@ The response will contain a transaction ID:
 }
 ```
 
----
 
 ## Transferring an NFT
 
 To transfer an NFT, we must enter the price of the sale from which the percentage royalties will be calculated.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await transferNFT(false, {
     to: '0x0ff64c166a462b31ed657c9d88c5ac4fef6b88b6',
@@ -327,6 +337,7 @@ curl --request POST \
   }
 }
 ```
+</div>
 
 The required parameters to transfer the NFT are:
 - **to** - the recipient address to which the NFT will be sent
@@ -354,6 +365,7 @@ Now, we must designate the addresses to which the cashback percentages from subs
 
 To update the cashback values of an NFT, use the following endpoint:
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await updateCashbackForAuthorNFT(false, {
     to: '0x0ff64c166a462b31ed657c9d88c5ac4fef6b88b6',
@@ -403,6 +415,7 @@ curl --request PUT \
   }
 }
 ```
+</div>
 
 To update the cashback percentage, the following parameters are required:
 - **to** - the recipient's address
@@ -426,6 +439,7 @@ The response will contain a transaction ID.
 
 To find out which NFTs a specific address holds, use the following call.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const nfts = await getNFTsByAddress(
     Currency.ETH,
@@ -439,6 +453,7 @@ curl --request GET \
   --header 'x-api-key: REPLACE_KEY_VALUE' \
   --header 'x-testnet-type: SOME_STRING_VALUE'
 ```
+</div>
 
 The required parameters are:
 - The **name of the blockchain**
@@ -461,6 +476,7 @@ To get NFT metadata for a specific token, you need:
 - The **smart contract address** from which the NFT was minted
 - The **token ID** of the NFT
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const metadataURI = await getNFTMetadataURI(
     Currency.ETH,
@@ -474,6 +490,7 @@ curl --request GET \
   --header 'x-api-key: REPLACE_KEY_VALUE' \
   --header 'x-testnet-type: SOME_STRING_VALUE'
 ```
+</div>
 
 The response will contain the location of the NFT's metadata:
 
@@ -489,6 +506,7 @@ The response will contain the location of the NFT's metadata:
 
 Since we've enabled provenance data in the NFTs we've minted, now we can use the get NFT provenance data endpoint to view a record of all of the transactions of the NFT since it was minted. The required parameters are the same as with the get metadata endpoint.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const obj = await getNFTProvenanceData(
     Currency.ETH,
@@ -502,6 +520,7 @@ curl --request GET \
   --header 'x-api-key: REPLACE_KEY_VALUE' \
   --header 'x-testnet-type: SOME_STRING_VALUE'
 ```
+</div>
 
 The response will contain the provenance data of the NFT:
 ```Response
@@ -518,198 +537,5 @@ The response will contain the provenance data of the NFT:
 ## Well done!
 
 Now you can create and work with NFTs that hold provenance data and payout royalties as percentages. Two in-demand features with just a few lines of code. For the full list of NFT operations available in Tatum, please refer to our API documentation. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -2,13 +2,12 @@
 
 *Create specialized NFTs that pay out a set amount to the creator for each subsequent transaction. Forever.*
 
-
 ---
  
 
-<!-- theme: info -->
+<div class="toolbar-note">
 >The [ERC-721 token](http://erc721.org/) is a standardized smart contract with a predefined set of features. The tokens are non-fungible, which means that each one is unique. You can think of them as one-of-a-kind collectibles.
-![ntf__-10.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/fRN3fCiot40)
+</div>
 
 ---
 
@@ -27,15 +26,15 @@ Tatum royalty NFTs can currently be created on:
 - **Polygon**
 - **Harmony.ONE**
 
-<!-- theme: info -->
->**Tatum royalty NFTs** are ERC-721 tokens with specialized smart contracts that pay creators cashback with each subsequent transaction. They can either pay a fixed amount of cashback or cashback percentages. In this guide, we are dealing with fixed cashback.
->
->For information on creating NFTs with percentage cashback and provenance data, please see this guide.
+<div class="toolbar-note">
+**Tatum royalty NFTs** are ERC-721 tokens with specialized smart contracts that pay creators cashback with each subsequent transaction. They can either pay a fixed amount of cashback or cashback percentages. In this guide, we are dealing with fixed cashback.
 
-<!-- theme: warning -->
->**Tatum royalty NFTs** are primarily intended for higher-value NFTs. The royalty functionality is currently incompatible with OpenSea and must be transferred using smart contract methods not currently supported within the platform. As soon as OpenSea allows this standard and method calls, our royalty NFTs will be fully compatible with the platform.
+For information on creating NFTs with percentage cashback and provenance data, please see this guide.
+</div>
 
----
+<div class="toolbar-warning">
+**Tatum royalty NFTs** are primarily intended for higher-value NFTs. The royalty functionality is currently incompatible with OpenSea and must be transferred using smart contract methods not currently supported within the platform. As soon as OpenSea allows this standard and method calls, our royalty NFTs will be fully compatible with the platform.
+</div>
 
 ## Import required libraries
 
@@ -46,7 +45,7 @@ Now, import the required libraries:
 import { deployNFT, getNFTContractAddress, mintNFTWithUri, transferNFT, getNFTsByAddress, getNFTMetadataURI, getNFTRoyalty } from '@tatumio/tatum'
 ```
 
----
+
 
 ## Creating an NFT smart contract
 
@@ -54,11 +53,13 @@ import { deployNFT, getNFTContractAddress, mintNFTWithUri, transferNFT, getNFTsB
 
 In this example, we are using [Celo](https://celo.org/) because it is fast, cheap and you can pay for transactions with a stable coin (cUSD). The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
 
-<!-- theme: warning -->
-> #### Security
->
-> In this guide, we are signing transactions using a private key via API. This is fine for testing and demo purposes, but for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use the [Tatum CLI](https://github.com/tatumio/tatum-cli); a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js); local [middleware API](https://github.com/tatumio/tatum-middleware); or our complex key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+#### Security
 
+<div class="toolbar-note">
+In this guide, we are signing transactions using a private key via API. This is fine for testing and demo purposes, but for production use, your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction, you can use the [Tatum CLI](https://github.com/tatumio/tatum-cli); a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js); local [middleware API](https://github.com/tatumio/tatum-middleware); or our complex key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+</div>
+
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await deployNFT(false, {
     name: 'CollectibleToken',
@@ -99,6 +100,7 @@ The required parameters are:
 - **fromPrivateKey** - the private key of the address that will be paying for the gas fees for the transaction
 - **feeCurrency** - the currency in which the fees will be paid (only for Celo)
 The response is the transaction ID from which the created token's address can be obtained.
+</div>
 
 ```Response
 {
@@ -112,6 +114,7 @@ The response is the transaction ID from which the created token's address can be
 
 To get the address of the smart contract, use the transaction ID in the response to the previous call with the Get NFT contract address endpoint:
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const contractAddress = await getNFTContractAddress(Currency.CELO, '0xe9d62746dba8d39035142420eeb25dcaed717e615e06ed797118dc55aa5863f9');
 ```
@@ -120,6 +123,7 @@ curl --request GET \
   --url https://api-eu1.tatum.io/v3/blockchain/sc/address/CELO/0xe9d62746dba8d39035142420eeb25dcaed717e615e06ed797118dc55aa5863f9 \
   --header 'x-api-key: REPLACE_KEY_VALUE'
 ```
+</div>
 
 The response will contain the address of your NFT smart contract in the contractAddress field:
 
@@ -129,7 +133,6 @@ The response will contain the address of your NFT smart contract in the contract
 }
 ```
 
----
 
 ## Uploading metadata
 
@@ -143,9 +146,11 @@ When your NFT smart contract is deployed and you know the contract address, you 
 
 In addition, if the creators of the NFT would like to receive cashback in a custom ERC-20 token, the "erc20" field must be present with the address of the smart contract of the ERC-20 token.
 
-<!-- theme: info -->
+<div class="toolbar-note">
 >You want to set up a cashback token for 1 author 0x8cb76aed9c5e336ef961265c6079c14e9cd3d2ea with value 0.1. This address will receive the cashback of 0.1 CELO for every token transfer.
+</div>
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await mintNFTWithUri(false, {
     to: '0x0ff64c166a462b31ed657c9d88c5ac4fef6b88b6',
@@ -195,6 +200,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint' \
   "erc20": "0x1410d4ec3d276c0ebbf16ccbe88a4383ae734ed0"
 }'
 ```
+</div>
 
 The required fields for the API endpoint body are:
 - **to** - he recipient's address to which the NFT will be minted
@@ -221,7 +227,7 @@ The response will be a transaction ID:
 
 To transfer tokens from the address where they were issued to another blockchain address, you can use the Transfer NFT token endpoint. You need the private key of the address where the tokens are located (address from the first call where the initial supply is distributed). You need to provide the value for the transfer transaction - it's the sum of all the royalties that should be paid to the authors.
 
-
+<div class='tabbed-code-blocks'>
 ```SDK
 const transactionHash = await transferNFT(false, {
     to: '0xfb99F8aE9b70A0C8Cd96aE665BBaf85A7E01a2ef',
@@ -263,6 +269,7 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/transaction' \
   "feeCurrency": "CUSD"
 }'
 ```
+</div>
 
 The required parameters to transfer the NFT are:
 - **to** - the recipient address to which the NFT will be sent
@@ -282,6 +289,7 @@ Again, the result is a blockchain transaction with an ID:
 
 If we use the get NFT transaction endpoint, you can see that the token was transferred to another recipient and the royalty cashback was paid to the author.
 
+<div class='tabbed-code-blocks'>
 ```REST API request
 curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/transaction/CELO/0xe9d62746dba8d39035142420eeb25dcaed717e615e06ed797118dc55aa5863f9' \
 --header 'x-api-key: YOUR_API_KEY' 
@@ -298,13 +306,14 @@ curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/transaction/CELO/
     ...
 }
 ```
-
+</div>
 ---
 
 ## Getting a list of tokens that belong to the address
 
 To find out which NFTs a specific address holds, use the following call.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const nfts = await getNFTsByAddress(
     Currency.CELO,
@@ -316,6 +325,7 @@ const nfts = await getNFTsByAddress(
 curl --location --request GET 'https://api-eu1.tatum.io/v3/nft/balance/CELO/0xd2A6B389eBE69208636B20b2abAcFC1eE0C3fF57/0xfb99F8aE9b70A0C8Cd96aE665BBaf85A7E01a2ef' \
 --header 'x-api-key: YOUR_API_KEY'
 ```
+</div>
 
 The required parameters are:
 - The **name of the blockchain**
@@ -338,6 +348,7 @@ To get NFT metadata for a specific token, you need:
 - The **smart contract address** from which the NFT was minted
 - The **token ID** of the NFT
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const metadataURI = await getNFTMetadataURI(
     Currency.CELO,
@@ -351,6 +362,7 @@ curl --request GET \
   --header 'x-api-key: REPLACE_KEY_VALUE' \
   --header 'x-testnet-type: SOME_STRING_VALUE'
 ```
+</div>
 
 The response will contain the location of the NFT's metadata:
 
@@ -366,6 +378,7 @@ The response will contain the location of the NFT's metadata:
 
 If you want to obtain royalty details for a token, you can use the Get NFT Royalty data endpoint. The required parameters are the same as for getting the token's metadata.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 const nftRoyalty = await getNFTRoyalty(
     Currency.CELO,
@@ -379,6 +392,7 @@ curl --request GET \
   --header 'x-api-key: REPLACE_KEY_VALUE' \
   --header 'x-testnet-type: SOME_STRING_VALUE'
 ```
+</div>
 
 The response will contain the addresses of the authors to be paid, and the cashback values for each author:
 
@@ -397,51 +411,6 @@ Tatum royalty NFTs are the only tokens in existence that payout to creators fore
 To find out more about the API calls we have just used, visit our API Reference.
 
 To learn how to create and work with provenance NFTs with percentage royalties, please check out this guide.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -18,16 +18,16 @@ Making NFTs with Tatum is just a matter of a few simple API calls. One very impo
 
 We’ve built native IPFS integration into our platform, so you just need a couple of API calls to store your metadata.
 
-1. First, upload your metadata (image, video, audio file, etc.) to IPFS using the [following API call](../docs/storage/b3A6Mjc2Mjk0NzI):
+1. First, upload your metadata (image, video, audio file, etc.) to IPFS using the [following API call](https://docs.tatum.io/rest/storage/store-data-to-ipfs):
 
+<div class='tabbed-code-blocks'>
 ```SDK
 import {ipfsGet, ipfsGet} from '@tatumio/tatum';
 /**
  * Gets data from the IPFS
  * @param id - IPFS CID of the file
  */
-  const ipfsId = await ipfsGet('QmXJJ6UF5WkF4WTJvsdhiA1etGwBLfpva7Vr9AudGMe3pj');
- 
+const ipfsId = await ipfsGet('QmXJJ6UF5WkF4WTJvsdhiA1etGwBLfpva7Vr9AudGMe3pj');
 /**
  * Upload file to the IPFS storage.
  * @param file - data buffer of the file. Content Type: multipart/form-data
@@ -42,6 +42,8 @@ curl --request POST \
   --header 'x-api-key: REPLACE_KEY_VALUE' \
   -F upload=@local_path_to_your_file_e_q_test-356.jpg
 ```
+</div>
+
 2. A successful call will return a response that includes an IPFS hash.
 
 ```Response
@@ -65,10 +67,11 @@ curl --request POST \
 }
 ```
 
-5. Now, upload your saved JSON metadata scheme to IPFS using the [same API call as above](../docs/storage/b3A6Mjc2Mjk0NzI).
+5. Now, upload your saved JSON metadata scheme to IPFS using the [same API call as above](https://docs.tatum.io/rest/storage/store-data-to-ipfs).
 6. Again, a successful upload will return an IPFS hash in the response.
-7. Include this hash in the “URL” field of the [Mint NFT API call](../docs/v3smartContracts/b3A6MzA3NjA4OTQ) when you mint a new NFT.
+7. Include this hash in the “URL” field of the [Mint NFT API call](https://docs.tatum.io/rest/smart-contracts/mint-nft) when you mint a new NFT.
 
+<div class='tabbed-code-blocks'>
 ```SDK
 import {Currency, mintNFTWithUri} from '@tatumio/tatum';
 const transactionHash = await mintNFTWithUri(false, {
@@ -110,6 +113,7 @@ curl --request POST \
       "nonce": 0
   }'
 ```
+</div>
 
 And there you have it! You've successfully uploaded your metadata to IPFS, created a JSON metadata scheme containing the URL of the file, uploaded the scheme, and minted an NFT connected to it.
 

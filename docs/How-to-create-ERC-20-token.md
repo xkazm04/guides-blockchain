@@ -4,9 +4,8 @@
 
 ---
 
-<!-- theme: info -->
-
->An [ERC-20](https://www.investopedia.com/news/what-erc20-and-what-does-it-mean-ethereum/) token is a standardized smart contract with a predefined set of features. It represents fungible tokens, which can be interchanged. The ERC-20 token is used as a blockchain representation of the currency.
+ <div class="toolbar-note">
+An [ERC-20](https://www.investopedia.com/news/what-erc20-and-what-does-it-mean-ethereum/) token is a standardized smart contract with a predefined set of features. It represents fungible tokens, which can be interchanged. The ERC-20 token is used as a blockchain representation of the currency.</div>
 
 To create your own ERC-20 token, you need to deploy a smart contract. Creating your own smart contract is not easy at all. As a developer, you must do a few things:
 
@@ -22,27 +21,30 @@ It is a lot to know. For developers who only need the basic features of ERC-20 t
 - **Celo**
 - **Harmony.ONE**
 - **Flow**
+- **Klaytn**
 - **Tron**
 - **Binance Smart Chain**
 
-<!-- theme: success -->
-
->Feel free to check out the source code to our ERC-20 smart contract on [GitHub](https://github.com/tatumio/tatum-middleware/blob/master/src/contracts/token.sol).
+ <div class="toolbar-note">
+Feel free to check out the source code to our ERC-20 smart contract on [GitHub](https://github.com/tatumio/tatum-middleware/blob/master/src/contracts/token.sol).
+</div>
 
 ---
 
 ## Deploying an ERC-20 Smart Contract
 
-[To create and deploy an ERC-20 token](../docs/v3smartContracts/b3A6NDAxOTkzMjQ) using Tatum, all you need is one simple API call. This API call deploys a standard, validated ERC-20 smart contract to the blockchain designated in the chain field. The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
+[To create and deploy an ERC-20 token](https://docs.tatum.io/rest/smart-contracts/deploy-erc-20-smart-contract) using Tatum, all you need is one simple API call. This API call deploys a standard, validated ERC-20 smart contract to the blockchain designated in the chain field. The required parameters are the name and symbol of the deployed token, the initial supply of the tokens, and the recipient address where the initial supply will be transferred.
 
-<!-- theme: warning -->
 
->**Securely signing transactions**
->
->In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
->
->Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
 
+**Securely signing transactions**
+<div class="toolbar-warning">
+In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
+</div>
+
+Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+
+<div class="tabbed-code-blocks">
 ```SDK
 import {prepareDeployErc20SignedTransaction} from '@tatumio/tatum'
 /**
@@ -50,8 +52,7 @@ import {prepareDeployErc20SignedTransaction} from '@tatumio/tatum'
  * @param body content of the transaction to broadcast
  * @param provider url of the Ethereum Server to connect to. If not set, default public server will be used.
  * @returns transaction data to be broadcast to blockchain.
- */
- 
+*/ 
 const body = {
   chain: "ETH",
   symbol: "ERC_SYMBOL",
@@ -113,6 +114,7 @@ curl --request POST \
       }
 }'
 ```
+</div>
 The response will contain a transaction ID, from which you can obtain the address of the smart contract you have deployed.
 
 **Response**:
@@ -128,7 +130,7 @@ The response will contain a transaction ID, from which you can obtain the addres
 ## Getting the address of the smart contract
 
 
-To [obtain the address of the smart contract](../docs/v3smartContracts/b3A6MzA4OTI4Njk-get-erc-20-transactions-by-address) you've deployed, use the following API request:
+To [obtain the address of the smart contract](https://docs.tatum.io/rest/smart-contracts/get-erc-20-transactions-by-address) you've deployed, use the following API request:
 
 ```SDK
 const contractAddress = await getNFTContractAddress(Currency.ETH, '0x75808516abfb2fa4e44fd2fc85863d15e11bdc3f90769962e3f34d7a17df4f0f');
@@ -151,8 +153,9 @@ The response will contain the address of the smart contract you've deployed.
 
 ## Transferring ERC-20 tokens to another blockchain address
 
-To transfer the tokens from the address where they were issued to another blockchain address, you can use the [Transfer ERC20 token](../docs/v3smartContracts/b3A6MzA4OTI4Njg-transfer-erc-20-token) endpoint from the Fungible Token section of the API documentation. You need the private key of the address where tokens are located (address from the first call where the initial supply is distributed) or the signature ID of the signed transaction from Tatum KMS.
+To transfer the tokens from the address where they were issued to another blockchain address, you can use the [Transfer ERC20 token](https://docs.tatum.io/rest/smart-contracts/transfer-erc-20-token) endpoint from the Fungible Token section of the API documentation. You need the private key of the address where tokens are located (address from the first call where the initial supply is distributed) or the signature ID of the signed transaction from Tatum KMS.
 
+<div class="tabbed-code-blocks">
 ```SDK
 import {sendEthOrErc20Transaction} from '@tatumio/tatum';
 /**
@@ -214,7 +217,7 @@ curl --request POST \
       }
 }'
 ```
-
+</div>
 The response will contain the transaction's ID from which you can get the details of the transaction.
 
 **Response**:
@@ -226,25 +229,6 @@ The response will contain the transaction's ID from which you can get the detail
 
 That wasn't too bad at all, right? With just three calls to Tatum, you were able to deploy your own token and transfer it. You don't have to install anything, learn Solidity, etc.
 
-To find out more about the API calls we have just used, visit our [API Reference](../docs/v3smartContracts/YXBpOjI3OTgxNDI4-fungible-token).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+To find out more about the API calls we have just used, visit our [API Reference](https://docs.tatum.io/rest/smart-contracts/fungible-token).
 
 

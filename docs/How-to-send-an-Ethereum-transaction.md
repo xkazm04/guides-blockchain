@@ -5,24 +5,21 @@
 Sending an Ethereum transaction is very straightforward, you only have to execute one API call to Tatum.
 
 
-<!-- theme: success -->
-
->The Ethereum blockchain is account-based. Your address is the account from which you send and receive every transaction.
-
+<div class="toolbar-note">
+The Ethereum blockchain is account-based. Your address is the account from which you send and receive every transaction.
 In order to send Ethereum to another blockchain address, you have to provide the recipient address, the amount to be transferred, and the private key of the account you want to send money from (or the signature ID from Tatum KMS). The fee for the transaction is calculated automatically based on the usage of the blockchain network, but can be entered manually.
+</div>
 
-<!-- theme: info -->
-> **Estimating transaction fees**
->
->You can quickly estimate transaction fees using the [Estimate fee for transaction endpoint](../docs/smart/b3A6NDAxOTg5MTU).
-
----
+<div class="toolbar-tip">
+**Estimating transaction fees**
+You can quickly estimate transaction fees using the [Estimate fee for transaction endpoint](https://docs.tatum.io/rest/blockchain/estimate-ethereum-transaction-fees).
+</div>
 
 ## Sending an Ethereum transaction
 
-Enough of the theory. Let's send some Ethereum using the [Eth blockchain transfer](../docs/v3blockchain/b3A6MjkwNDQ2NDM-send-ethereum-erc-20-from-account-to-account) endpoint. To send ERC-20 tokens, you'll also need to include the **contractAddress** of the ERC-20 token you're sending and **digits** (number of decimal points) the ERC-20 token has.
+Enough of the theory. Let's send some Ethereum using the [Eth blockchain transfer](https://docs.tatum.io/rest/blockchain/send-ethereum-erc-20-from-account-to-account) endpoint. To send ERC-20 tokens, you'll also need to include the `contractAddress` of the ERC-20 token you're sending and `digits` (number of decimal points) the ERC-20 token has.
 
-
+<div class='tabbed-code-blocks'>
 ```SDK
 import {sendEthOrErc20Transaction} from '@tatumio/tatum';
 /**
@@ -43,7 +40,6 @@ import {sendEthOrErc20Transaction} from '@tatumio/tatum';
   amount: "100000",
   to: "0x687422eEA2cB73B5d3e242bA5456b782919AFc85"
 });
-
 ```
 ```REST API call with Private key
 curl --request POST \
@@ -89,6 +85,7 @@ curl --request POST \
     "index": 0
 }}'
 ```
+</div>
 
 The response will contain a transaction ID that you can use to get information about the transaction.
 
@@ -99,20 +96,18 @@ The response will contain a transaction ID that you can use to get information a
 }
 ```
 
-<!-- theme: warning -->
-
->**Securely signing transactions**
->
->In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
->
->Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
-
+<div class="toolbar-note">
+**Securely signing transactions**
+In this guide, we are signing transactions with a private key via API. This is fine for testing and demo purposes, but should not be used for production purposes. 
+Your private keys and mnemonics should never leave your security perimeter. To correctly and securely sign a transaction you can use [Tatum CLI](https://github.com/tatumio/tatum-cli) from the command line, a specific language library like [Tatum JS](https://github.com/tatumio/tatum-js), the local [middleware API](https://github.com/tatumio/tatum-middleware), or our comprehensive key management system, [Tatum KMS](https://github.com/tatumio/tatum-kms).
+</div>
 ---
 
 ## Getting transaction detail
 
-To get the details of the transaction, use the transaction ID from the response of the previous call with the [Ethereum/Get transaction endpoint](../docs/v3blockchain/b3A6MjkwNDQ2NDA-get-ethereum-transaction).
+To get the details of the transaction, use the transaction ID from the response of the previous call with the [Ethereum/Get transaction endpoint](https://docs.tatum.io/rest/blockchain/get-ethereum-transaction).
 
+<div class='tabbed-code-blocks'>
 ```SDK
 import {ethGetTransaction } from '@tatumio/tatum';
 /**
@@ -125,6 +120,8 @@ const transaction = await ethGetTransaction('962e4ad3781e7036ff3af6d880744fd3f06
 curl --location --request GET 'https://api-eu1.tatum.io/v3/ethereum/transaction/0x7698f412a70385f3e1ab513a9ecf5edd7dc1c76f0e369b1c7b059d98892091c0' \
 --header 'x-api-key: YOUR_API_KEY' 
 ```
+</div>
+
 The response will contain the details of the transaction.
 
 Response:
@@ -147,46 +144,6 @@ Response:
 }
 ```
 
-And that's it. A piece of cake. Now you know how to send Eth and ERC-20 tokens on Ethereum and get the details of the transaction. To find out more about the endpoints you used today, read our [API Reference](/docs/v3blockchain/YXBpOjI5MDIxMjIx-ethereum).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+And that's it. A piece of cake. Now you know how to send Eth and ERC-20 tokens on Ethereum and get the details of the transaction. To find out more about the endpoints you used today, read our [API Reference](https://docs.tatum.io/rest/blockchain/ethereum).
 
 

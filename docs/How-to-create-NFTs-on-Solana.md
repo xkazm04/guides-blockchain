@@ -16,14 +16,15 @@ We’ll get into a couple of other small differences specific to the Mint and Tr
 
 ## Minting NFTs
 
-To mint an NFT on Solana, you can use the same Mint NFT endpoint in Tatum that you would with any other blockchain. Most of the parameters are exactly the same, but the royalty information in the **metadata** section has a couple of key differences:
+To mint an NFT on Solana, you can use the same Mint NFT endpoint in Tatum that you would with any other blockchain. Most of the parameters are exactly the same, but the royalty information in the `metadata` section has a couple of key differences:
 
-The total percentage royalty of each transaction to be paid out to the creators is entered in the **sellerFeeBasisPoints** field of the Mint NFT endpoint. For example, if the **sellerFeeBasisPoints** value is “10”, this means 10% of the purchase price of the NFT will be transferred to creators each time it is sold. 
+The total percentage royalty of each transaction to be paid out to the creators is entered in the `sellerFeeBasisPoints` field of the Mint NFT endpoint. For example, if the `sellerFeeBasisPoints*` value is “10”, this means 10% of the purchase price of the NFT will be transferred to creators each time it is sold. 
 
-The **share** field contains the different percentages of the total **sellerFeeBasisPoints** to be divided among the creators. If there are 2 creators, one with a share value of “30” and one with a **share** value of “70”, 30% and 70% of the total **sellerFeeBasisPoints** royalty will be paid to each respective creator.
+The `share` field contains the different percentages of the total `sellerFeeBasisPoints` to be divided among the creators. If there are 2 creators, one with a share value of “30” and one with a `share` value of “70”, 30% and 70% of the total `sellerFeeBasisPoints` royalty will be paid to each respective creator.
 
 Use the following API endpoint to mint an NFT on Solana:
 
+<div class='tabbed-code-blocks'>
 ```REST API  
 curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint/' \
 --header 'x-api-key: REPLACE_KEY_VALUE' \
@@ -46,12 +47,10 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/nft/mint/' \
            }
        ]
    }
-}'
+}
 ```
-```SDK
+```TatumJS
 import { mintNft, SolanaNftMetadata } from '@tatumio/tatum-solana'
-
-console.log(
   await mintNft(
     {
       from: 'FykfMwA9WNShzPJbbb9DNXsfgDgS3XZzWiFgrVXfWoPJ',
@@ -60,10 +59,9 @@ console.log(
       to: 'FykfMwA9WNShzPJbbb9DNXsfgDgS3XZzWiFgrVXfWoPJ',
       metadata: new SolanaNftMetadata('Tatum', 'TTM', 'https://tatum.io/images/logo/logo.svg', 0),
     }
-  )
 )
-
 ```
+</div>
 
 The required fields in the API endpoint body are:
 - **from** - the address of the creator of the NFT from which the gas fees will be paid 
@@ -93,14 +91,13 @@ The response will contain a transaction ID, and two additional parameters that a
 }
 ```
 
----
-
 ## Transferring NFTs
 
 The way the Solana blockchain works with minting and transferring NFTs uses **nftAccountAddresses**. For practical use of Tatum’s API, this makes very little difference, but it is important to know that for transferring NFTs, the **nftAddress** of the NFT is used, NOT the **nftAccountAddress**.
 
 Use the following API endpoint to transfer an NFT on Solana:
 
+<div class='tabbed-code-blocks'>
 ```REST API
 curl --request POST \
   --url https://api-eu1.tatum.io/v3/nft/transaction \
@@ -112,11 +109,10 @@ curl --request POST \
       "to": "FykfMwA9WNShzPJbbb9DNXsfgDgS3XZzWiFgrVXfWoPJ",
       "contractAddress": "7dQWANaodDyttJNz3seaXoAe6VA8cLpPV1bM4cPGuNhG",
       "fromPrivateKey": "3abc79a31093e4cfa4a724e94a44906cbbc3a32e2f75f985a28616676a5dbaf1de8d82a7e1d0561bb0e1b729c7a9b9b1708cf2803ad0ca928a332587ace391ad"
-}'
+}
 ```
-```SDK
+```TatumJs
 import { mintNft, SolanaNftMetadata } from '@tatumio/tatum-solana'
-
 console.log(
   await transferNft(
     {
@@ -128,8 +124,8 @@ console.log(
     }
   )
 )
-
 ```
+</div>
 
 The required parameters for the API endpoint body are:
 - **chain** - the chain on which you are transferring the NFT (in this case, “SOL”) from - the sender’s account address 
@@ -145,51 +141,5 @@ The response will contain a transaction ID:
 ```
 
 And that’s it! Two API calls and you can start minting and transferring NFTs on Solana like a pro. To see the rest of the API endpoints available to you for Solana in Tatum, check out our API documentation.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

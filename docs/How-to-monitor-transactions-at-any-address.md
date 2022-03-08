@@ -26,10 +26,10 @@ In Tatum, webhook notifications work as subscriptions to blockchain addresses. W
 
 To create a subscription to monitor a blockchain address, you just need to send the following API call:
 
+<div class='tabbed-code-blocks'>
 ```SDK
-import { createNewSubscription, CreateSubscription, SubscriptionType } from '@tatumio/tatum'
-
-export const createAddressNotificationTransactionSubscription = async () => {
+import { createNewSubscription, CreateSubscription,SubscriptionType } from '@tatumio/tatum'
+const createAddressNotificationTransactionSubscription = async () => {
   const data: CreateSubscription = {
     "type": SubscriptionType.ADDRESS_TRANSACTION,
     "attr": {
@@ -40,7 +40,6 @@ export const createAddressNotificationTransactionSubscription = async () => {
   }
   return await createNewSubscription(data)
 }
-
 ```
 ```REST API call
 curl --location --request POST 'https://api-eu1.tatum.io/v3/subscription' \
@@ -53,14 +52,16 @@ curl --location --request POST 'https://api-eu1.tatum.io/v3/subscription' \
         "url": "https://webhook.site/d7eb36b5-a6ed-458a-b3be-836a6b7f0918"
     },
     "type": "ADDRESS_TRANSACTION"
-}'
+}
 ```
+</div>
 
 The required parameters for the body of the call are:
+
 - **address** - the blockchain address for which the subscription will be created 
 - **chain** - the blockchain on which you are creating the subscription 
 - **url** - the URL to which the notification will be sent 
-- **type** - the type of the subscription. To be notified about all transactions, the type should be set to “ADDRESS_TRANSACTION”.
+- **type** - the type of the subscription. To be notified about all transactions, the type should be set to `ADDRESS_TRANSACTION`.
 
 A successful request will return a transaction ID.
 
@@ -127,29 +128,5 @@ counterAddress - the address from which the token was transferred (for incoming 
 ## Get notified!
 
 So there you have it. Just 1 API call to setup notifications for any type of token on any supported blockchain. We're going to be adding A LOT of new supported blockchains to our **Notification Station** API, so please check back frequently, or follow us on [LinkedIn](https://www.linkedin.com/company/tatumio) or [Twitter](https://twitter.com/tatum_io) to stay up to date.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
