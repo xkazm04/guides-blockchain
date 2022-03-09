@@ -1,4 +1,4 @@
-# How to create ERC-1155 mult-tokens
+# How to create ERC-1155 multi-tokens
 
 *Create flexible multi tokens with both fungible and non-fungible properties*
 
