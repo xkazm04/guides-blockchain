@@ -64,6 +64,11 @@
       "type": "item",
       "title": "How To Create Royalty NFTs With Percentage Cashback And Provenance Data",
       "uri": "/docs/How-to-create-royalty-NFTs-with-percentage-cashback-and-provenance-data.md"
+    },
+    {
+      "type": "item",
+      "title": "What are tokens and how to deploy token smart contracts",
+      "uri": "/docs/What-are-tokens-and-how-to-deploy-token-smart-contracts.md"
     }
   ]
 }
