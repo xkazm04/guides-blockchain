@@ -76,6 +76,7 @@ For production use, you should NEVER send private keys over the Internet. Instea
 Use the following API call to deploy your own ERC-20 token smart contract:
 
 <div class='tabbed-code-blocks'>
+``` Tatum JS
 import {prepareDeployErc20SignedTransaction} from '@tatumio/tatum'
 /**
  * Sign Ethereum deploy ERC20 transaction with private keys locally. Nothing is broadcast to the blockchain.
@@ -95,22 +96,24 @@ const body = {
   feeCurrency: "CELO"
 }
 const prepareDeploy = await prepareDeployErc20SignedTransaction(body)
+```
 </div>
 
 The required parameters are:
 
-- **chain** — the name of the blockchain (“CELO” in our case)
-- **symbol** — the symbol of the ERC-20 token
-- **name** — the name of the ERC-20 token
-- **totalCap** — the total supply of the token that can be created
-- **supply** — the initial supply of the token to be minted with the deployment of the contract. If the total supply is greater than the initial supply, more tokens can be minted at any point in the future.
-- **digits** — the number of digits of the token
-- **address** — the address to which the initial supply of the token will be minted
-- **fromPrivateKey** — the private key of the address from which the gas fees will be paid. 
-<div class="toolbar-note">
+- `chain` — the name of the blockchain (“CELO” in our case)
+- `symbol` — the symbol of the ERC-20 token
+- `name` — the name of the ERC-20 token
+- `totalCap` — the total supply of the token that can be created
+- `supply` — the initial supply of the token to be minted with the deployment of the contract. If the total supply is greater than the initial supply, more tokens can be minted at any point in the future.
+- `digits` — the number of digits of the token
+- `address` — the address to which the initial supply of the token will be minted
+- `fromPrivateKey` — the private key of the address from which the gas fees will be paid. 
+<div class="toolbar-warning">
 NOTE: you should NEVER use private keys in productions use. They are fine for testing and demo purposes on testnets, but for production use you should use a secure key management system like [Tatum KMS](https://docs.tatum.io/tutorials/how-to-securely-store-private-keys).
 </div>
-**feeCurrency** — the currency in which the gas fees will be paid (only for Celo).
+
+- `feeCurrency` - the currency in which the gas fees will be paid (only for Celo).
 
 For more on working with ERC-20 fungible tokens, check out our [full guide](https://docs.tatum.io/guides/blockchain/how-to-create-an-erc-20-token).
 
@@ -121,6 +124,7 @@ This is the classic NFT standard. Each token minted from this type of smart cont
 Use the following API endpoint to deploy an NFT smart contract on Celo:
 
 <div class='tabbed-code-blocks'>
+```Request body
 const transactionHash = await deployNFT(false, {
     body.chain: Currency.CELO,
     body.name: 'MY_ERC721',
@@ -128,17 +132,15 @@ const transactionHash = await deployNFT(false, {
     body.fromPrivateKey: '0x4874827a55d87f2309c55b835af509e3427aa4d52321eeb49a2b93b5c0f8edfb',
     body.feeCurrency: Currency.CUSD
 });
+```
 </div>
 
 The required parameters are:
-- **chain** — the name of the blockchain (“CELO” in our case)
-- **name** — the name of the NFT collection
-- **symbol** — the symbol of the NFT collection
-- **fromPrivateKey** — the private key of the address from which the gas fees will be paid. 
-<div class="toolbar-note">
-NOTE: you should NEVER use private keys in productions use. They are fine for testing and demo purposes on testnets, but for production use you should use a secure key management system like [Tatum KMS](https://docs.tatum.io/tutorials/how-to-securely-store-private-keys).
-</div>
-- **feeCurrency** — the currency in which the gas fees will be paid (only for Celo).
+- `chain` — the name of the blockchain (“CELO” in our case)
+- `name` — the name of the NFT collection
+- `symbol` — the symbol of the NFT collection
+- `fromPrivateKey` — the private key of the address from which the gas fees will be paid. 
+- `feeCurrency` — the currency in which the gas fees will be paid (only for Celo).
 
 And that’s it: you’ve just deployed an ERC-721 smart contract on Celo. Be sure to check out our full guide on [how to work with NFTs in Tatum](https://docs.tatum.io/guides/blockchain/how-to-create-nft-token) for how to mint NFTs from your smart contract, transfer them, and more.
 
@@ -149,11 +151,12 @@ ERC-1155 is the main token standard used to create multi-tokens. As we mentioned
 While their functionality is more complex than that of ERC-721 tokens, deploying them with Tatum is just as easy. Use the following endpoint to deploy an ERC-1155 smart contract:
 
 <div class='tabbed-code-blocks'>
+```TatumJS
 import {Currency, deployMultiToken} from '@tatumio/tatum';
 /**
  * Deploy MultiTokens (1155) contract.
  * @param testnet - testnet or mainnet
- * @param body - body of the request - https://docs.tatum.io/rest/smart-contracts#/deploy-multi-token-smart-contract
+ * @param body - body of the request - https://docs.tatum.io/rest/smart-contracts/deploy-multi-token-smart-contract
  * @param provider - (optional) provider to broadcast tx
  */
 const body = {
@@ -163,17 +166,19 @@ const body = {
   feeCurrency: Currency.CELO
 }
 const txId = deployMultiToken(false, body);
+```
 </div>
 
 The required parameters are:
 
-- **chain** — the name of the blockchain (“CELO” in our case)
-- **uri** — the URL of the NFT metadata which will be included in tokens minted from the smart contract.
-- **fromPrivateKey** — the private key of the address from which the gas fees will be paid. 
+- `chain` — the name of the blockchain (“CELO” in our case)
+- `uri` — the URL of the NFT metadata which will be included in tokens minted from the smart contract.
+- `fromPrivateKey` — the private key of the address from which the gas fees will be paid. 
 <div class="toolbar-note">
 NOTE: you should NEVER use private keys in productions use. They are fine for testing and demo purposes on testnets, but for production use you should use a secure key management system like [Tatum KMS](https://docs.tatum.io/tutorials/how-to-securely-store-private-keys).
 </div>
-- **feeCurrency** — the currency in which the gas fees will be paid (only for Celo).
+
+- `feeCurrency` — the currency in which the gas fees will be paid (only for Celo).
 For more on how to mint multi-tokens from your smart contract and perform other operations, be sure to check out our [full guide](https://docs.tatum.io/guides/blockchain/how-to-create-erc-1155-multi-tokens).
 
 ## Ready to get started?
@@ -183,8 +188,5 @@ If you’re ready to jump right in and try it for yourself, go ahead and [sign u
 If you need any help, hop onto the Tatum [Discord](https://discord.com/invite/4TWtSP3vxU) and our devs will get back to you asap.
 
 Happy coding!
-
-
-
 
 
