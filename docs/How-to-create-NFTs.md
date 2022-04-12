@@ -19,8 +19,8 @@ Creating a new NFT, or "smart contract" on an Ethereum-compatible blockchain, is
 - How to develop using an IDE
 - How to deploy the compiled smart contract
 
+![image.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/CL2KOwW4fTE)
 
-![ntf__-11.png](https://stoplight.io/api/v1/projects/cHJqOjExNjE4OQ/images/81dJ6yOpTlg)
 
 It's a lot to know, and for developers who only need the basic features of ERC-721 tokens, it would take weeks to figure it all out.
 
